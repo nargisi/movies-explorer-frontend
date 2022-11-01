@@ -1,10 +1,12 @@
 import React from 'react';
 import '../AboutProject/AboutProject.css';
+import Line from '../Line/Line'
 
 function AboutProject() {
     return (
+        <>
        <div className="about__container">
-           <h3 className="about__title">О проекте</h3>
+           <Line>О проекте</Line>
            <div className='about__description'>
                <div className='about__description-container'>
                     <p className='about__description-title'>Дипломный проект включал 5 этапов</p>
@@ -18,6 +20,7 @@ function AboutProject() {
                </div>
            </div>
        </div>
+       </>
       )
 }
 export default AboutProject

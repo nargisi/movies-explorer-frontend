@@ -1,6 +1,6 @@
 .techs__container{
     padding: 100px 70px;
-    background: #E5E5E5;
+    background: #F5F5F5;
 }
 
 
@@ -30,4 +30,32 @@
     text-align: center;
     letter-spacing: -0.04em;
     color: #000000;
+}
+
+
+.techs__container-grid{
+    display: grid;
+    grid-template-columns:repeat(6, 1fr);
+    padding-left: 225px;
+    padding-right: 225px;
+    gap:10px;
+}
+
+
+.techs__container-grid__info{
+    margin:0;
+    height: 60px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    color: #000000;
+    background: #E8E8E8;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
