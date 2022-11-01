@@ -1,0 +1,33 @@
+.techs__container{
+    padding: 100px 70px;
+    background: #E5E5E5;
+}
+
+
+.techs__title{
+    margin: 0;
+    padding-bottom: 26px;
+    padding-top: 90px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    color: #000000;
+    }
+
+
+.techs__paragraph{
+    margin: 0;
+    padding-bottom: 100px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    color: #000000;
+}
