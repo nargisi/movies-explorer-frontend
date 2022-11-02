@@ -5,7 +5,7 @@ import MainImage from '../../../images/Main_image.svg'
 import '../Promo/Promo.css'
 
 
-function Promo() {
+const Promo = () => {
     return (
         <>
         <div className="promo__container">

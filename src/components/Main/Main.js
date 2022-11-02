@@ -5,7 +5,7 @@ import Techs from "./Techs/Techs";
 import Footer from "../Footer/Footer";
 import AboutMe from "./AboutMe/AboutMe";
 
-function Main() {
+const Main = () => {
    return (
        <>
        <Promo/>

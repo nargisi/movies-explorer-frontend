@@ -2,7 +2,7 @@ import React from 'react';
 import '../Techs/Techs.css'
 import Line from '../Line/Line'
 
-function Techs() {
+const Techs = () => {
     return (
         <>
        <div className="techs__container">

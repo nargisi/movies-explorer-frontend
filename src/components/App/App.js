@@ -9,7 +9,7 @@ import PageNotFound from '../PageNotFound/PageNotFound';
 import Main from '../Main/Main';
 import '../App/App.css'
 
-function App() {
+const App = () => {
   return (
     <div className="page">
       <Switch>

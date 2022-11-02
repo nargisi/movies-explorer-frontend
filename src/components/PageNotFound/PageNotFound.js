@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import '../PageNotFound/PageNotFound.css'
 
 
-function PageNotFound () {
+const PageNotFound = () => {
     return (
       <div className="not-found">
         <h2 className="not-found__title">

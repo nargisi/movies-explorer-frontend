@@ -30,6 +30,11 @@
 }
 
 
+.header__link:hover{
+    opacity: 0.8;
+}
+
+
 .header__link-button{
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;
@@ -46,4 +51,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+.header__link-button:hover{
+    opacity: 0.8;
 }

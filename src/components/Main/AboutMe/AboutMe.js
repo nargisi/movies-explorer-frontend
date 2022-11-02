@@ -4,7 +4,7 @@ import Line from '../Line/Line'
 import Student from '../../../images/student.jpg';
 import Portfolio from '../Portfolio/Portfolio';
 
-function AboutMe() {
+const AboutMe = () => {
     return (
         <>
         <div className='about__container'>

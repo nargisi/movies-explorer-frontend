@@ -2,7 +2,7 @@ import React from 'react';
 import '../AboutProject/AboutProject.css';
 import Line from '../Line/Line'
 
-function AboutProject() {
+const AboutProject = () => {
     return (
         <>
        <div id="about" className="about__container">

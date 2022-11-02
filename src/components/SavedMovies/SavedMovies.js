@@ -1,3 +1,3 @@
-function SavedMovies() {
+const SavedMovies = () => {
 }
 export default SavedMovies
