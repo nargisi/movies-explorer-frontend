@@ -22,7 +22,7 @@ function Promo() {
             <div className="promo__box">
                 <h1 className="promo__title">Учебный проект студента факультета Веб-разработки.</h1>
                 <h3 className="promo__text">Листайте ниже, чтобы узнать больше про этот проект и его создателя.</h3>
-                <Link className="promo__link"to="/">Узнать больше</Link>
+                <a className="promo__link" href="#about">Узнать больше</a>
                 <img className="promo__image" src={MainImage} alt='Земля'/>
             </div>
         </div>

@@ -1,68 +1,7 @@
-.portfolio__container{
-    padding: 110px 70px 125px;
-}
-
-
-.portfolio__box{
-    position: relative;
-}
-
-
 .portfolio__title{
     margin: 0;
-    padding-top: 66px;
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 50px;
-    line-height: 58px;
-    letter-spacing: -0.04em;
-    color: #000000;
-}
-
-
-.portfolio__subtitle{
-    margin: 0;
-    padding-top: 18px;
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 20px;
-    color: #000000;
-    mix-blend-mode: normal;
-}
-
-
-.portfolio__info{
-    margin: 0;
-    padding-top: 26px;
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-    color: #000000;
-    mix-blend-mode: normal;
-    max-width: 600px;
-}
-
-
-.portfolio__tech{
-    margin: 0;
-    padding-top: 99px;
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
-    color: #000000;
-}
-
-
-.portfolio__text{
-    margin: 0;
     padding-top: 101px;
+    padding-bottom: 50px;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -71,3 +10,56 @@
     color: #A0A0A0;
     mix-blend-mode: normal;
 }
+
+
+.portfolio__box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.portfolio__line{
+    border-bottom: 1px solid  #E8E8E8;
+    margin-top: 19px;
+    margin-bottom: 20px;
+}
+
+
+.portfolio__subtitle{
+    margin: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: -0.04em;
+    color: #000000;
+}
+
+
+.portfolio__link{
+    width: 29px;
+    height: 60px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 60px;
+    letter-spacing: -0.04em;
+    color: #000000;
+    text-decoration: none;
+}
+
+
+.portfolio__link:hover{
+    opacity: 0.8;
+}
+
+
+@media screen and (max-width: 1079px) { 
+    .portfolio__title{
+        padding-top: 91px;
+    }
+    
+} 
