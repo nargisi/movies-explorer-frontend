@@ -12,17 +12,23 @@
 }
 
 
+.portfolio__list{
+    padding-left: 0;
+}
+
+
 .portfolio__box{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #E8E8E8;
+    margin-bottom: 20px;
 }
 
 
-.portfolio__line{
-    border-bottom: 1px solid  #E8E8E8;
-    margin-top: 19px;
-    margin-bottom: 20px;
+.portfolio__box:last-child{
+    margin-bottom: 0;
+    border-bottom: none;
 }
 
 
@@ -40,7 +46,6 @@
 
 .portfolio__link{
     width: 29px;
-    height: 60px;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 400;

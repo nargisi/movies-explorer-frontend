@@ -39,11 +39,11 @@
     padding-left: 225px;
     padding-right: 225px;
     gap:10px;
+    margin: 0;
 }
 
 
 .techs__container-grid__info{
-    margin:0;
     height: 60px;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;

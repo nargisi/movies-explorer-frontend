@@ -6,12 +6,6 @@
 }
 
 
-.header__logo{
-    height: 38px;
-    width: 38px;
-}
-
-
 .header__links{
     display: flex;
     align-items: center;
