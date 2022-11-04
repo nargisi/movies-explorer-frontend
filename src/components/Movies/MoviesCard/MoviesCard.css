@@ -1,0 +1,52 @@
+.movies-card__title{
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height */
+    color: #000000;
+}
+
+
+.movies-card__item{
+    cursor: pointer;
+}
+
+
+.movies-card__like-button{
+    background-image: url(../../../images/like.svg);
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none ;
+    /* background: #F9F9F9; */
+    border-radius: 36px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+
+.movies-card__sign{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 29px;
+}
+
+
+.movies-card__duration{
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    color: #A0A0A0;
+    padding-top: 6px;
+    border-top: 1px solid #E8E8E8;
+}
+
+

@@ -1,0 +1,22 @@
+.search-form__container{
+    padding: 70px 0 80px;
+}
+
+
+.search-form__input{
+    height: 72px;
+    width: 100%;
+    background: #F9F9F9;
+    border-radius: 9px;
+    border: none;
+}
+
+
+.search-form__button{
+    background-image: url(../../../images/find.svg);
+    width: 34px;
+    height: 34px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none ;
+}
