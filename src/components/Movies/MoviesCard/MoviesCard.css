@@ -14,17 +14,32 @@
 }
 
 
-.movies-card__like-button{
-    background-image: url(../../../images/like.svg);
+.movies-card__button{
     width: 24px;
     height: 24px;
     background-repeat: no-repeat;
     background-size: contain;
     border: none ;
-    /* background: #F9F9F9; */
-    border-radius: 36px;
     margin-left: 20px;
     cursor: pointer;
+}
+
+.movies-card__button-like{
+    background-image: url(../../../images/like.svg);
+    /* background: #F9F9F9; */
+    border-radius: 36px;
+}
+
+
+.movies-card__button-delete{
+    background-image: url(../../../images/cross.svg);
+    /* visibility: hidden; */
+    background-color: #FFFFFF;
+}
+
+
+.movies-card__button-delete:hover{
+    visibility: visible;
 }
 
 
@@ -50,3 +65,8 @@
 }
 
 
+@media screen and (max-width: 1079px) {
+    .movies-card__img{
+        width: 100%;
+    }
+} 

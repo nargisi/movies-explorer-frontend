@@ -59,3 +59,21 @@
     align-items: center;
     justify-content: center;
 }
+
+
+@media screen and (max-width: 1079px) {
+    .techs__container{
+        padding: 90px 50px;
+    }
+    .techs__title{
+        padding-top: 80px;
+        padding-bottom: 22px;
+    }
+    .techs__paragraph{
+        padding-bottom: 83px;
+    }
+    .techs__container-grid{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

@@ -38,18 +38,6 @@
     line-height: 16px;
 }
 
-/* .navigation__account{
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
-    display: flex;
-    align-items: center;
-    color: #000000;
-    text-decoration: none;
-} */
-
 
 .navigation__link:hover{
     opacity: 0.8;
@@ -58,8 +46,6 @@
 
 .navigation__link_type_account::after{
     content: url(../../images/icon-main.svg);
-    /* background-repeat: no-repeat;
-    background-size: contain; */
     width: 10px;
     height: 10.67px;
     margin-left: 20px;

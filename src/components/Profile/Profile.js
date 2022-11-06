@@ -16,6 +16,7 @@ const Profile = () => {
                 Имя
               </label>
               <input
+                required
                 className="profile__input"
                 id="name"
                 name="name"
@@ -30,6 +31,7 @@ const Profile = () => {
               </label>
               <input
                 className="profile__input"
+                required
                 id="email"
                 name="email"
                 value="pochta@yandex.ru"

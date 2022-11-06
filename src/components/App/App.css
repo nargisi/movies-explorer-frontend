@@ -1,6 +1,5 @@
 .page {
-    min-width: 320px;
-    max-width: 1280px;
+    height: 100%;
     margin: 0 auto;
     box-sizing: border-box;
 }

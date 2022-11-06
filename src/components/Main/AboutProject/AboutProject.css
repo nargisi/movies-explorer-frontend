@@ -4,13 +4,9 @@
 
 
 .about__description{
-    display: flex;
-    gap: 40px;
-}
-
-
-.about__description-container{
-    padding-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
 }
 
 
@@ -24,6 +20,7 @@
     letter-spacing: -0.04em;
     color: #000000;
     padding-bottom: 26px;
+    padding-top: 70px;
 }
 
 
@@ -36,22 +33,19 @@
     line-height: 20px;
     color: #000000;
     padding-bottom: 110px;
+    
 }
 
 
 .about__timing{
     display: grid;
     grid-template-columns: 1fr 4fr;
-    height: 36px;
-}
-
-
-.about__timing_theme-white{
-    height: 17px;
 }
 
 
 .about__timing-week{
+    padding-top: 9px;
+    padding-bottom: 9px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,4 +82,39 @@
     line-height: 17px;
     color: #000000;
     background: #F2F2F2;
+}
+
+
+@media screen and (max-width: 1079px) {
+    .about__container{
+       padding: 90px 50px;
+    }
+    .about__description{
+        column-gap: 30px;
+    }
+    .about__description-paragraph{
+        font-size: 12px;
+        line-height: 18px;
+        padding-bottom: 93px;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    /* .about__description{
+        display: block;
+    } */
+    .about__timing-week{
+        font-size: 11px;
+        line-height: 13px;
+        padding-top: 11px;
+        padding-bottom: 11px;
+    }
+    .about__timing-weeks{
+        font-size: 11px;
+        line-height: 13px;
+    }
+    .about__timing-week_theme-white{
+        padding-top: 10px;
+    }
 }

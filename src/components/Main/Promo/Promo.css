@@ -70,3 +70,37 @@
     top:75px;
     right:0;
 }
+
+
+@media screen and (max-width: 1079px) {
+    .promo__container{
+        padding: 0 30px;
+    }
+    .promo__box{
+        padding-top: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .promo__image{
+        position: relative;
+        top:0;
+    }
+    .promo__title {
+        font-size: 40px;
+        line-height: 50px;
+        margin-top: 48px;
+        padding-bottom: 22px;
+        text-align: center;
+    }
+    .promo__text {
+        font-size: 13px;
+        line-height: 16px;
+        padding-bottom: 92px;
+        text-align: center;
+    }
+    .promo__link {
+        opacity: 1;
+    }
+}  
