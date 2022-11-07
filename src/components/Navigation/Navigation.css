@@ -49,4 +49,6 @@
     width: 10px;
     height: 10.67px;
     margin-left: 20px;
+    display: inline-block;
+    transform: translateY(1px);
 }

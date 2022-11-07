@@ -35,7 +35,7 @@
 
 .techs__container-grid{
     display: grid;
-    grid-template-columns:repeat(6, 1fr);
+    grid-template-columns:repeat(7, 1fr);
     padding-left: 225px;
     padding-right: 225px;
     gap:10px;
@@ -73,7 +73,30 @@
         padding-bottom: 83px;
     }
     .techs__container-grid{
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .techs__container{
+        padding: 70px 14px;
+    }
+    .techs__title{
+        padding-top: 60px;
+        padding-bottom: 24px;
+        font-size: 30px;
+        line-height: 36px;
+    }
+    .techs__paragraph{
+        padding-bottom: 50px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+    .techs__container-grid{
+        padding-left: 57px;
+        padding-right: 57px;
+        grid-template-columns:repeat(2, 1fr);
     }
 }

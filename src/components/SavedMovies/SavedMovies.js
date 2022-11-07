@@ -13,6 +13,7 @@ const SavedMovies = () => {
         <Navigation />
         <SearchForm />
         <MoviesCardList movies={SavedMoviesArr} isSavedPage />
+        <div className="movies__add-container"></div>
         <Footer />
       </div>
     </>

@@ -1,5 +1,5 @@
 .movies__container{
-    padding: 0 70px 80px;
+    padding: 0 70px;
 }
 
 
@@ -32,3 +32,23 @@
     justify-content: center;
     padding: 50px 0 80px;
 }
+
+
+@media screen and (max-width: 1079px) {
+    .movies__container{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+} 
+
+
+@media screen and (max-width: 767px) {
+    .movies__container{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .movies__add-container{
+        padding: 60px 60px 89px;
+
+    }
+} 

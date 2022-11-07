@@ -104,3 +104,28 @@
         opacity: 1;
     }
 }  
+
+
+@media screen and (max-width: 767px) {
+    .promo__container{
+        padding: 0 10px;
+    }
+    .promo__image{
+        width: 210px;
+        height: 206px;
+    }
+    .promo__box{
+        padding-top: 70px;
+        padding-bottom: 30px;
+    }
+    .promo__title {
+        font-size: 30px;
+        line-height: 38px;
+        margin-top: 44px;
+        padding-bottom: 24px;
+    }
+    .promo__text {
+        padding-bottom: 80px;
+        text-align: center;
+    }
+}

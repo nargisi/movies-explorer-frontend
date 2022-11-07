@@ -19,3 +19,11 @@
     line-height: 12px;
     color: #FF4062;
 }
+
+
+@media screen and (max-width: 768px) {
+    .form__welcome{
+        padding-bottom: 80px;
+        padding-top: 50px;
+    } 
+}

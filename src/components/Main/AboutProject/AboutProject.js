@@ -11,7 +11,7 @@ const AboutProject = () => {
           <p className="about__description-title">
             Дипломный проект включал 5 этапов
           </p>
-          <p className="about__description-title">
+          <p className="about__description-title about__description-title-grid">
             На выполнение диплома ушло 5 недель
           </p>
           <p className="about__description-paragraph">

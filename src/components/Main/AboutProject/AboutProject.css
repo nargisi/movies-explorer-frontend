@@ -97,13 +97,37 @@
         line-height: 18px;
         padding-bottom: 93px;
     }
+    .about__timing{
+        grid-template-columns: 1fr 3.77fr;
+    }
 }
 
 
 @media screen and (max-width: 767px) {
-    /* .about__description{
-        display: block;
-    } */
+    .about__container{
+        padding: 70px 18px;
+     }
+    .about__description{
+        grid-template-columns: 1fr;
+    }
+    .about__description-title-grid{
+        padding-top: 0;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+    .about__description-title{
+        font-size: 18px;
+        line-height: 22px;
+        padding-bottom: 16px;
+    }
+    .about__description-paragraph{
+        font-size: 11px;
+        line-height: 16px;
+        padding-bottom: 60px;
+    }
+    .about__timing{
+        grid-template-columns: 1fr 1.84fr;
+    }
     .about__timing-week{
         font-size: 11px;
         line-height: 13px;
