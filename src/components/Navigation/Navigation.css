@@ -3,13 +3,29 @@
 }
 
 
+.navigation__hamburger{
+    background-image: url(../../images/hamburger.svg);
+    width: 44px;
+    height: 44px;
+    border: none;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    display: none;
+}
+
+
+.navigation__hamburger:hover{
+    opacity: 0.8;
+}
+
+
 .navigation__box{
     display: flex;
     margin-left: 50px;
 }
 
 
-.navigation__list{
+.navigation__menu{
     list-style-type: none;
     display: flex;
 }
@@ -51,4 +67,16 @@
     margin-left: 20px;
     display: inline-block;
     transform: translateY(1px);
+}
+
+
+@media screen and (max-width: 1024px) {
+        .navigation__menu{
+            display: none;
+        }
+        .navigation__hamburger{
+            display: block;
+        }
+
+    
 }

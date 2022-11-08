@@ -34,7 +34,7 @@
 }
 
 
-@media screen and (max-width: 1079px) {
+@media screen and (max-width: 1023px) {
     .movies__container{
         padding-left: 30px;
         padding-right: 30px;

@@ -8,19 +8,17 @@ import SearchForm from './SearchForm/SearchForm';
 
 const Movies = () => {
   return (
-    <>
-      <div className="movies__container">
-        <Navigation />
-        <SearchForm />
-        <MoviesCardList movies={InitialMovies} />
-        <div className="movies__add-container">
-          <button className="movies__add-button" aria-label="Еще">
-            Ещё
-          </button>
-        </div>
-        <Footer />
+    <div className="movies__container">
+      <Navigation />
+      <SearchForm />
+      <MoviesCardList movies={InitialMovies} />
+      <div className="movies__add-container">
+        <button className="movies__add-button" aria-label="Еще">
+          Ещё
+        </button>
       </div>
-    </>
+      <Footer />
+    </div>
   );
 };
 

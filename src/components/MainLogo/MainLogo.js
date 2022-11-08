@@ -1,13 +1,14 @@
-import React from "react";
-import "./MainLogo.css";
-import Logo from "../../images/Logo.svg";
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './MainLogo.css';
+import Logo from '../../images/Logo.svg';
 
 const MainLogo = () => {
-    return(
-        <img className="logo" src={Logo} alt="Логотип"/>
-    )
-}
+  return (
+    <Link to="/">
+      <img className="logo" src={Logo} alt="Логотип" />
+    </Link>
+  );
+};
 
-
-export default MainLogo
+export default MainLogo;

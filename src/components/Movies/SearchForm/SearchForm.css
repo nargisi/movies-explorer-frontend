@@ -24,7 +24,7 @@
     margin-left: 19px;
     margin-right: 10px;
     display: inline-block;
-    transform: translateY(5px);
+    transform: translateY(8px);
 }
 
 
@@ -67,7 +67,7 @@
     border: none; 
     margin-left: 30px;
     margin-right: 30px;
-    color:  #E8E8E8;
+    color: #CBCBCB;
     background-color: #F9F9F9;
     width: 1px;
     padding-top: 16px;
@@ -75,76 +75,27 @@
 }
 
 
-.search-form__shorts{
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 18px;
-    /* identical to box height, or 138% */
-    color: #000000;
-    padding: 27px 0 27px 15px;
-    margin-right: 30px;
-}
-
-
-.search-form__checkbox-toggle-button{
-    position: relative;
-    width: 36px;
-    height: 20px;
-    background-color: #2BE080;
-    border-radius: 20px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0;
-    outline: none;
-    display: inline-block;
-    transform: translateY(2px);
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
-}
-
-
-.search-form__checkbox-toggle-button::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    left: 5.56%;
-    top: 10%;
-    bottom: 10%;
-    width: 16px;
-    height: 16px;
-    background-color: #FFFFFF;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
-    border-radius: 50%;
-    transform: translateX(0);
-    transition: all 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
-  }
-
-
-  .search-form__checkbox-toggle-button:checked::after {
-    transform: translateX(calc(100% - 5.56%));
-    background-color: #FFFFFF;  
-  }
-
-  
-  .search-form__checkbox-toggle-button:checked {
-    background-color: #2BE080;
-  }
-
-
-  @media screen and (max-width: 1079px) {
+  @media screen and (max-width: 1023px) {
     .search-form__stroke{
         margin-left: 19px;
-        margin-right: 19px;
+        margin-right: 20px;
     }
 } 
 
 
 @media screen and (max-width: 767px) {
     .search-form__stroke{
-        margin-left: 19px;
-        margin-right: 19px;
+        display: none;
+    }
+    .search-form__icon{
+        display: none;
+    }
+    .search-form__container{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .search-form__bar{
+        width: 100%;
     }
 } 

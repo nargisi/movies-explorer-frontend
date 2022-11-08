@@ -15,7 +15,7 @@
 }
 
 
-@media screen and (max-width: 1079px) {
+@media screen and (max-width: 1023px) {
     .movies-card-list__box{
         row-gap: 30px;
         column-gap: 30px;

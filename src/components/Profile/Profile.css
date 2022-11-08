@@ -109,3 +109,31 @@
 .profile__exit:hover{
     opacity: 0.8;
 }
+
+
+@media screen and (max-width: 767px) {
+    .profile__container{
+        padding: 0 14px 0;
+    }
+    .profile{
+        max-width: 260px;
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 40px;
+    }
+    .profile__sign{
+        margin-top: 379px;
+    }
+    .profile__submit{
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .profile__exit{
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .profile__welcome{
+        padding-bottom: 80px;
+    }
+}

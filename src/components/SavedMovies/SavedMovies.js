@@ -8,15 +8,13 @@ import '../SavedMovies/SavedMovies.css';
 
 const SavedMovies = () => {
   return (
-    <>
-      <div className="saved-movies__container">
-        <Navigation />
-        <SearchForm />
-        <MoviesCardList movies={SavedMoviesArr} isSavedPage />
-        <div className="movies__add-container"></div>
-        <Footer />
-      </div>
-    </>
+    <div className="saved-movies__container">
+      <Navigation />
+      <SearchForm />
+      <MoviesCardList movies={SavedMoviesArr} isSavedPage />
+      <div className="movies__add-container"></div>
+      <Footer />
+    </div>
   );
 };
 

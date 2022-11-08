@@ -6,23 +6,28 @@ import '../Register/Register.css';
 
 const Register = () => {
   return (
-    <>
-      <div className="register__container">
-        <div className="register">
-          <Form title="Добро пожаловать!">
-            <Input label="Имя" name="Имя" type="text" />
-            <Input label="E-mail" name="email" type="email" />
-            <Input label="Пароль" name="password" type="password" />
-          </Form>
-          <FormSubmit
-            link="/signin"
-            title="Зарегистрироваться"
-            question="Уже зарегистрированы? "
-            text="Войти"
+    <div className="register__container">
+      <div className="register">
+        <Form title="Добро пожаловать!">
+          <Input
+            label="Имя"
+            name="Имя"
+            type="text"
+            required
+            minlength="2"
+            maxlength="30"
           />
-        </div>
+          <Input label="E-mail" name="email" type="email" required />
+          <Input label="Пароль" name="password" type="password" required />
+        </Form>
+        <FormSubmit
+          link="/signin"
+          title="Зарегистрироваться"
+          question="Уже зарегистрированы? "
+          text="Войти"
+        />
       </div>
-    </>
+    </div>
   );
 };
 

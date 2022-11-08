@@ -85,7 +85,7 @@
 }
 
 
-@media screen and (max-width: 1079px) {
+@media screen and (max-width: 1023px) {
     .about__container{
        padding: 90px 50px;
     }

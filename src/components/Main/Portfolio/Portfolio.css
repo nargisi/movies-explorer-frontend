@@ -55,15 +55,16 @@
     letter-spacing: -0.04em;
     color: #000000;
     text-decoration: none;
+    cursor: pointer;
 }
 
 
 .portfolio__link:hover{
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 
-@media screen and (max-width: 1079px) { 
+@media screen and (max-width: 1023px) { 
     .portfolio__title{
         padding-top: 91px;
     }
