@@ -3,6 +3,12 @@
     align-items: center;
 }
 
+
+.filter-check-box__mobile{
+  display: none;
+}  
+
+
 .filter-check-box__shorts{
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;
@@ -62,11 +68,6 @@
   }
 
 
-  @media screen and (max-width: 1280px) {
-    .filter-check-box__mobile{
-        display: none;
-    }  
-} 
 
   @media screen and (max-width: 767px) {
     .filter-check-box__normal{

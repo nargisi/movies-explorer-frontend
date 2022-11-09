@@ -8,11 +8,11 @@ const Input = (props) => {
         {props.label}
       </label>
       <input
-        className="input"
+        className={`input ${props.className}`}
         required
         id={props.name}
         name={props.name}
-        value=""
+        value={props.value}
         type={props.type}
         onChange={() => {}}
       />

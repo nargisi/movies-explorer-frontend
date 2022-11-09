@@ -94,8 +94,18 @@
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
+        padding-bottom: 20px;
     }
     .search-form__bar{
         width: 100%;
+    }
+    .search-form__bar{
+        margin-bottom: 20px;
+    }
+    .search-form__button{
+        margin-right: 19px;
+    }
+    .search-form__input{
+        padding-left: 19px;
     }
 } 

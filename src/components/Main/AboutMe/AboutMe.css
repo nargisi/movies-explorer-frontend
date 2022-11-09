@@ -134,11 +134,8 @@
         gap:0;
         align-items: flex-start;
     }
-    .about-me__box-data{
-        flex-basis: 40%;
-    }
     .about-me__box-photo{
-        flex-basis: 60%;
+        max-width: 100%;
     }
     .about-me__title{
         font-size: 30px;
@@ -154,7 +151,7 @@
         line-height: 16px;
     }
     .about-me__image{
-        max-width: 292px;
+        max-width: unset;
         max-height: 352px;
     }
 } 

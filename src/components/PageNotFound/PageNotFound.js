@@ -4,15 +4,13 @@ import '../PageNotFound/PageNotFound.css';
 
 const PageNotFound = () => {
   return (
-    <>
-      <div className="not-found__container">
-        <h2 className="not-found__title">404</h2>
-        <p className="not-found__text">Страница не найдена</p>
-        <Link className="button__to-main" to="/">
-          Назад
-        </Link>
-      </div>
-    </>
+    <div className="not-found__container">
+      <h2 className="not-found__title">404</h2>
+      <p className="not-found__text">Страница не найдена</p>
+      <Link className="button__to-main" to="/">
+        Назад
+      </Link>
+    </div>
   );
 };
 

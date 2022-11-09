@@ -16,9 +16,25 @@ const Register = () => {
             required
             minlength="2"
             maxlength="30"
+            value="Анастасия"
           />
-          <Input label="E-mail" name="email" type="email" required />
-          <Input label="Пароль" name="password" type="password" required />
+          <Input
+            label="E-mail"
+            name="email"
+            type="email"
+            required
+            value="pochta@yandex.ru"
+          />
+          <Input
+            className="input__error"
+            label="Пароль"
+            name="password"
+            type="password"
+            required
+            value="1234?67"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          />
+          <span className="form__error">Что-то пошло не так</span>
         </Form>
         <FormSubmit
           link="/signin"

@@ -92,5 +92,6 @@
     .movies-card__duration{
         font-size: 10px;
         line-height: 12px;
+        margin-bottom: 34px;
     }
 } 
