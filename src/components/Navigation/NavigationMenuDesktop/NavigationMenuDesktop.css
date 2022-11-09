@@ -1,0 +1,51 @@
+.navigation__menu-desktop{
+    list-style-type: none;
+    display: flex;
+}
+
+
+.navigation__link-desktop{
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: right;
+    color: #000000;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+
+.navigation__link-desktop_active{
+    font-weight: 400;
+}
+
+
+.navigation__link-desktop_type_account{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+
+.navigation__link-desktop:hover{
+    opacity: 0.6;
+}
+
+
+.navigation__link-desktop_type_account::after{
+    content: url(../../../images/icon-main.svg);
+    width: 10px;
+    height: 10.67px;
+    margin-left: 20px;
+    display: inline-block;
+    transform: translateY(1px);
+}
+
+
+@media screen and (max-width: 1024px) {
+    .navigation__menu-desktop{
+        display: none;
+    }
+}
