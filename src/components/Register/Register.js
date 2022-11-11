@@ -6,7 +6,7 @@ import '../Register/Register.css';
 
 const Register = () => {
   return (
-    <div className="register__container">
+    <section className="register__container">
       <div className="register">
         <Form title="Добро пожаловать!">
           <Input
@@ -43,7 +43,7 @@ const Register = () => {
           text="Войти"
         />
       </div>
-    </div>
+    </section>
   );
 };
 

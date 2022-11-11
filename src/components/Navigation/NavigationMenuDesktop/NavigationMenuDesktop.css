@@ -36,11 +36,16 @@
 
 .navigation__link-desktop_type_account::after{
     content: url(../../../images/icon-main.svg);
-    width: 10px;
-    height: 10.67px;
+    width: 30px;
+    height: 30px;
     margin-left: 20px;
-    display: inline-block;
-    transform: translateY(1px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* transform: translateY(1px); */
+    background-color: #F9F9F9;
+    border-radius: 6px;
+    vertical-align: middle;
 }
 
 

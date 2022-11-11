@@ -5,7 +5,7 @@ import Input from '../Input/Input';
 
 const Login = () => {
   return (
-    <div className="register__container">
+    <section className="register__container">
       <div className="register">
         <Form title="Рады видеть!">
           <Input
@@ -26,7 +26,7 @@ const Login = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 export default Login;

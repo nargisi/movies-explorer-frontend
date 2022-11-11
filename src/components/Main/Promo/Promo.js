@@ -1,22 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Header from '../../Header/Header';
+// import { Link } from 'react-router-dom';
+// import Header from '../../Header/Header';
 import MainImage from '../../../images/Main_image.svg';
 import '../Promo/Promo.css';
 
 const Promo = () => {
   return (
-    <div className="promo__container">
-      <Header>
-        <div className="header__links">
-          <Link className="header__link" to="/signup">
-            Регистрация
-          </Link>
-          <Link className="header__link-button" to="/signin">
-            Войти
-          </Link>
-        </div>
-      </Header>
+    <section className="promo__container">
       <div className="promo__box">
         <img className="promo__image" src={MainImage} alt="Земля" />
         <h1 className="promo__title">
@@ -29,7 +19,7 @@ const Promo = () => {
           Узнать больше
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 export default Promo;

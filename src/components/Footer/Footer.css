@@ -53,10 +53,20 @@
 }
 
 
+@media screen and (max-width: 1023px) {
+    .footer__container{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+
 @media screen and (max-width: 767px) {
     .footer__container{
-        padding: 79px 10px 0px;
-    }
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 10px;
+        }
     .footer__box{
         flex-direction: column-reverse;
         justify-content: center;

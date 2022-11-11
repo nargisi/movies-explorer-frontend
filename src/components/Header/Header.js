@@ -4,10 +4,10 @@ import MainLogo from '../MainLogo/MainLogo';
 
 const Header = (props) => {
   return (
-    <div className="header">
+    <header className="header">
       <MainLogo />
       {props.children}
-    </div>
+    </header>
   );
 };
 export default Header;

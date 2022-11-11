@@ -47,6 +47,8 @@
 .movies-card__button-delete{
     background-image: url(../../../images/cross.svg);
     visibility: hidden;
+    /* background: #F9F9F9; */
+    border-radius: 36px;
 }
 
 

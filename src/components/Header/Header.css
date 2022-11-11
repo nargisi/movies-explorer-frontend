@@ -3,6 +3,9 @@
     justify-content: space-between;
     align-items: center;
     min-height: 74px;
+    margin-right: 70px;
+    margin-left: 70px;
+    /* position: fixed; */
 }
 
 
@@ -53,8 +56,20 @@
 }
 
 
+@media screen and (max-width: 1023px) {
+    .header{
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+}
+
+
 @media screen and (max-width: 767px) {
     .header__link-button{
         margin-left: 14px;
+    }
+    .header{
+        margin-right: 10px;
+        margin-left: 10px;
     }
 }

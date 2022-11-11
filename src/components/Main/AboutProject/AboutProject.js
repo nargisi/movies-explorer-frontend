@@ -4,7 +4,7 @@ import Line from '../Line/Line';
 
 const AboutProject = () => {
   return (
-    <div id="about" className="about__container">
+    <section id="about" className="about__container">
       <Line>О проекте</Line>
       <div className="about__description">
         <p className="about__description-title">
@@ -34,7 +34,7 @@ const AboutProject = () => {
           Front-end
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 export default AboutProject;
