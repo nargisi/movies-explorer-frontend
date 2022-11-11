@@ -81,18 +81,19 @@
     color: #CBCBCB;
     background-color: #F9F9F9;
     width: 1px;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    height: 40px;
+    transform: translateY(5px);
 }
 
 
   @media screen and (max-width: 1023px) {
     .search-form__stroke{
-        margin-left: 19px;
+        margin-left: 20px;
         margin-right: 20px;
     }
     .search-form__bar{
-        margin-bottom: 120px;
+        margin-top: 80px;
+        margin-bottom: 110px;
     }
 } 
 
