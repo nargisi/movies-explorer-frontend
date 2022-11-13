@@ -46,7 +46,10 @@
 
 
 .portfolio__link{
-    width: 29px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -71,10 +74,6 @@
     .portfolio__subtitle{
         font-size: 28px;
     }
-    .portfolio__link{
-        width: 27px;
-    }
-    
 } 
 
 
@@ -87,8 +86,4 @@
         font-size: 18px;
         line-height: 28px;
     }
-    .portfolio__link{
-        width: 18px;
-    }
-    
 } 

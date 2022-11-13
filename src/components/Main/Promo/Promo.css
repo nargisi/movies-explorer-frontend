@@ -1,6 +1,6 @@
 .promo__container{
     background: #F3C1F8;
-    padding: 0 70px;
+    padding: 74px 70px 0;
 }
 
 
@@ -72,10 +72,7 @@
 }
 
 
-@media screen and (max-width: 1023px) {
-    .promo__container{
-        padding: 0 30px;
-    }
+@media screen and (max-width: 1100px) {
     .promo__box{
         padding-top: 140px;
         display: flex;
@@ -103,12 +100,21 @@
     .promo__link {
         opacity: 1;
     }
+}
+
+
+@media screen and (max-width: 1023px) {
+    .promo__container{
+        padding-right: 30px;
+        padding-left: 30px;
+    }
 }  
 
 
 @media screen and (max-width: 767px) {
     .promo__container{
-        padding: 0 10px;
+        padding-right: 10px;
+        padding-left: 10px;
     }
     .promo__image{
         width: 210px;

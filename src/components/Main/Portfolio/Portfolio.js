@@ -7,36 +7,38 @@ function Portfolio() {
       <p className="portfolio__title">Портфолио</p>
       <ul className="portfolio__list">
         <li className="portfolio__box">
-          <p className="portfolio__subtitle">Статичный сайт</p>
           <a
             className="portfolio__link"
             href="https://github.com/nargisi/movies-explorer-frontend/pull/1"
             target="_blank"
             rel="noopener noreferrer"
           >
-            &#x2197;
+            <span className="portfolio__subtitle">Статичный сайт</span>
+            <span className="portfolio__arrow">&#x2197;</span>
           </a>
         </li>
         <li className="portfolio__box">
-          <p className="portfolio__subtitle">Адаптивный сайт</p>
           <a
             className="portfolio__link"
             href="https://github.com/nargisi/movies-explorer-frontend/pull/1"
             target="_blank"
             rel="noopener noreferrer"
           >
-            &#x2197;
+            <span className="portfolio__subtitle">Адаптивный сайт</span>
+            <span className="portfolio__arrow">&#x2197;</span>
           </a>
         </li>
         <li className="portfolio__box">
-          <p className="portfolio__subtitle">Одностраничное приложение</p>
           <a
             className="portfolio__link"
             href="https://github.com/nargisi/movies-explorer-frontend/pull/1"
             target="_blank"
             rel="noopener noreferrer"
           >
-            &#x2197;
+            <span className="portfolio__subtitle">
+              Одностраничное приложение
+            </span>
+            <span className="portfolio__arrow">&#x2197;</span>
           </a>
         </li>
       </ul>

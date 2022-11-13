@@ -5,6 +5,10 @@
     min-height: 74px;
     margin-right: 70px;
     margin-left: 70px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .header__container{
