@@ -1,0 +1,144 @@
+.about__container{
+    padding: 110px 70px;
+}
+
+
+.about__description{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+}
+
+
+.about__description-title{
+    margin: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    color: #000000;
+    padding-bottom: 26px;
+    padding-top: 70px;
+}
+
+
+.about__description-paragraph{
+    margin: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000000;
+    padding-bottom: 110px;
+    
+}
+
+
+.about__timing{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+
+.about__timing-week{
+    padding-top: 9px;
+    padding-bottom: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    background: #000000;
+}
+
+
+.about__timing-week_theme-white{
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #A0A0A0;
+    background: #FFFFFF;
+    padding-top: 14px;
+}
+
+
+.about__timing-weeks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    background: #F2F2F2;
+}
+
+
+@media screen and (max-width: 1023px) {
+    .about__container{
+       padding: 90px 50px;
+    }
+    .about__description{
+        column-gap: 30px;
+    }
+    .about__description-paragraph{
+        font-size: 12px;
+        line-height: 18px;
+        padding-bottom: 93px;
+    }
+    .about__timing{
+        grid-template-columns: 1fr 3.77fr;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .about__container{
+        padding: 70px 14px;
+     }
+    .about__description{
+        grid-template-columns: 1fr;
+    }
+    .about__description-title-grid{
+        padding-top: 0;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+    .about__description-title{
+        font-size: 18px;
+        line-height: 22px;
+        padding-bottom: 16px;
+    }
+    .about__description-paragraph{
+        font-size: 11px;
+        line-height: 16px;
+        padding-bottom: 60px;
+    }
+    .about__timing{
+        grid-template-columns: 1fr 1.84fr;
+    }
+    .about__timing-week{
+        font-size: 11px;
+        line-height: 13px;
+        padding-top: 11px;
+        padding-bottom: 11px;
+    }
+    .about__timing-weeks{
+        font-size: 11px;
+        line-height: 13px;
+    }
+    .about__timing-week_theme-white{
+        padding-top: 10px;
+    }
+}

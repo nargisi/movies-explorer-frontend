@@ -1,0 +1,78 @@
+.form-submit__button {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #000000;
+    border-radius: 3px;
+    border: none;
+    margin-bottom: 16px;
+    margin-top: 152px;
+    width: 100%;
+    height: 45px;
+    cursor: pointer;
+}
+
+
+.form-submit__button:hover {
+    opacity: 0.85;
+}
+
+
+.form-submit__signin {
+    text-align: center;
+}
+
+
+.form-submit__login-question {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #A0A0A0;
+    margin: 0;
+}
+
+
+.form-submit__login-link{
+    text-decoration: none;
+}
+
+
+.form-submit__login-exit{
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #000000;
+    margin-left: 7px;
+}
+
+
+.form-submit__login-exit:hover{
+    opacity: 0.6;
+}
+
+
+@media screen and (max-width: 767px) {
+    .form-submit__button{
+        font-size: 12px;
+        line-height: 15px;
+        margin-bottom: 14px;
+    } 
+    .form-submit__login-question{
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .form-submit__login-exit{
+        font-size: 12px;
+        line-height: 15px;
+    }
+}

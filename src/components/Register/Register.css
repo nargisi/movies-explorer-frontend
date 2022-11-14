@@ -1,0 +1,32 @@
+.register{
+    max-width: 396px;
+    margin: 0 auto;
+}
+
+
+.register__container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+}
+
+
+.register__submit-container{
+    margin-top: 27px;
+}
+
+
+@media screen and (max-width: 767px) {
+    .register{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 260px;
+    } 
+    .register__submit-container{
+        max-width: 260px;
+        width: 100%;
+    }
+}
