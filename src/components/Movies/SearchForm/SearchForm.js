@@ -3,7 +3,11 @@ import FilterCheckBox from '../FilterCheckBox/FilterCheckBox';
 import '../SearchForm/SearchForm.css';
 
 const SearchForm = (props) => {
-  const { handleSubmit } = props;
+  const { handleSubmit, searchValue, setSearchValue } = props;
+
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+  };
   return (
     <div className="search-form__container">
       <FilterCheckBox className="filter-check-box__mobile" />
@@ -13,9 +17,11 @@ const SearchForm = (props) => {
           id="search-form__input"
           className="search-form__input"
           type="text"
+          value={searchValue}
           name="text"
           placeholder="Фильм"
           required
+          onChange={handleChange}
         ></input>
         <span id="search-form__input-error"></span>
         <button
