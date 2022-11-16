@@ -42,8 +42,7 @@ const Movies = () => {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
         />
-        <Preloader />
-        {/* {isLoading ? <Preloader /> : <MoviesCardList movies={movies} />} */}
+        {isLoading ? <Preloader /> : <MoviesCardList movies={movies} />}
         <div className="movies__add-container">
           <button className="movies__add-button" aria-label="Еще">
             Ещё
