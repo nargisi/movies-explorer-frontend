@@ -2,20 +2,27 @@ import React from 'react';
 import FilterCheckBox from '../FilterCheckBox/FilterCheckBox';
 import '../SearchForm/SearchForm.css';
 
-const SearchForm = () => {
+const SearchForm = (props) => {
+  const { handleSubmit } = props;
   return (
     <div className="search-form__container">
       <FilterCheckBox className="filter-check-box__mobile" />
-      <form className="search-form__bar">
+      <form className="search-form__bar" onSubmit={handleSubmit}>
         <div className="search-form__icon"></div>
         <input
+          id="search-form__input"
           className="search-form__input"
           type="text"
           name="text"
           placeholder="Фильм"
           required
         ></input>
-        <button className="search-form__button" aria-label="Искать"></button>
+        <span id="search-form__input-error"></span>
+        <button
+          className="search-form__button"
+          aria-label="Искать"
+          type="submit"
+        ></button>
         <div className="search-form__stroke"></div>
         <FilterCheckBox className="filter-check-box__normal" />
       </form>

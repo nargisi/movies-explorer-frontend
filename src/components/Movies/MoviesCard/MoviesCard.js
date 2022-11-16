@@ -2,7 +2,7 @@ import React from 'react';
 import '../MoviesCard/MoviesCard.css';
 
 const MoviesCard = (props) => {
-  const { liked, src, title, isSavedPage } = props;
+  const { liked, src, title, duration, isSavedPage } = props;
   // Создаём переменную, которую после зададим в `className` для кнопки
   let cardButtonClassName;
   if (isSavedPage) {
@@ -26,7 +26,7 @@ const MoviesCard = (props) => {
           aria-label="Кнопка"
         />
       </div>
-      <div className="movies-card__duration">1ч 42 м</div>
+      <div className="movies-card__duration">{duration}</div>
     </li>
   );
 };
