@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 const Main = () => {
   return (
     <>
-      {/* <section className="header__container"> */}
       <Header>
         <div className="header__links">
           <Link className="header__link" to="/signup">
@@ -21,7 +20,6 @@ const Main = () => {
           </Link>
         </div>
       </Header>
-      {/* </section> */}
       <main className="main">
         <Promo />
         <AboutProject />

@@ -22,11 +22,17 @@ const getMoviesRenderParams = () => {
 const Movies = () => {
   const { moviesInRow, step, maxRows } = getMoviesRenderParams();
 
-  const [onlyShort, setOnlyShort] = useState(false);
+  const [onlyShort, setOnlyShort] = useState(
+    JSON.parse(localStorage.getItem('checkboxState')) || false
+  );
 
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(
+    JSON.parse(localStorage.getItem('movies')) || []
+  );
 
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState(
+    localStorage.getItem('requestText') || ''
+  );
 
   const [searchIsCompleted, setSearchIsCompleted] = useState(false);
 
@@ -51,6 +57,9 @@ const Movies = () => {
               (onlyShort ? movie.duration <= 40 : true)
           )
         );
+        localStorage.setItem('movies', JSON.stringify(moviesData));
+        localStorage.setItem('requestText', searchValue);
+        localStorage.setItem('checkboxState', JSON.stringify(onlyShort));
       })
       .catch(() => {
         setError(true);

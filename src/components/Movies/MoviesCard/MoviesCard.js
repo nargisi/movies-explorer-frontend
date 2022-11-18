@@ -3,7 +3,7 @@ import { toHoursAndMinutes } from '../../../utils/utils';
 import '../MoviesCard/MoviesCard.css';
 
 const MoviesCard = (props) => {
-  const { liked, src, title, duration, isSavedPage } = props;
+  const { liked, src, title, duration, isSavedPage, trailerLink } = props;
   // Создаём переменную, которую после зададим в `className` для кнопки
   let cardButtonClassName;
   if (isSavedPage) {
@@ -16,18 +16,27 @@ const MoviesCard = (props) => {
 
   return (
     <li className="movies-card__item">
-      <div className="movies-card__container">
-        <img className="movies-card__img" src={src} alt={title} />
-      </div>
-      <div className="movies-card__sign">
-        <h2 className="movies-card__title">{title}</h2>
-        <button
-          className={cardButtonClassName}
-          type="button"
-          aria-label="Кнопка"
-        />
-      </div>
-      <div className="movies-card__duration">{toHoursAndMinutes(duration)}</div>
+      <a
+        className="movies-card__link"
+        href={trailerLink}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="movies-card__container">
+          <img className="movies-card__img" src={src} alt={title} />
+        </div>
+        <div className="movies-card__sign">
+          <h2 className="movies-card__title">{title}</h2>
+          <button
+            className={cardButtonClassName}
+            type="button"
+            aria-label="Кнопка"
+          />
+        </div>
+        <div className="movies-card__duration">
+          {toHoursAndMinutes(duration)}
+        </div>
+      </a>
     </li>
   );
 };
