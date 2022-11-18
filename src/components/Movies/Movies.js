@@ -45,8 +45,10 @@ const Movies = () => {
       .getMovies()
       .then((moviesData) => {
         setMovies(
-          moviesData.filter((movie) =>
-            movie.nameRU.toLowerCase().includes(searchValue)
+          moviesData.filter(
+            (movie) =>
+              movie.nameRU.toLowerCase().includes(searchValue) &&
+              (onlyShort ? movie.duration <= 40 : true)
           )
         );
       })
@@ -93,6 +95,8 @@ const Movies = () => {
           handleSubmit={handleSubmit}
           searchValue={searchValue}
           setSearchValue={setSearchValue}
+          setOnlyShort={setOnlyShort}
+          onlyShort={onlyShort}
         />
         {component}
         <div className="movies__add-container">

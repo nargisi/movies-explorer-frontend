@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../FilterCheckBox/FilterCheckBox.css';
 
-const FilterCheckBox = ({ className }) => {
-  // const handleChangeCheckbox = () => {
-  //   setIsChecked(!isChecked);
-  // };
-
+const FilterCheckBox = ({ className, onlyShort, setOnlyShort }) => {
+  const handleSwitchShort = (e) => {
+    console.log(e.target.checked);
+    setOnlyShort(e.target.checked);
+  };
   return (
     <div className={`filter-check-box__container ${className}`}>
       <div className="filter-check-box__tumb">
@@ -13,8 +13,8 @@ const FilterCheckBox = ({ className }) => {
           type="checkbox"
           className="filter-check-box__toggle-button"
           id="toggle-button"
-          // checked={isChecked}
-          // onChange={handleChangeCheckbox}
+          checked={onlyShort}
+          onChange={handleSwitchShort}
         />
         <label className="filter-check-box__rounded" htmlFor="toggle-button" />
       </div>

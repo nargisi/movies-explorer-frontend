@@ -3,14 +3,19 @@ import FilterCheckBox from '../FilterCheckBox/FilterCheckBox';
 import '../SearchForm/SearchForm.css';
 
 const SearchForm = (props) => {
-  const { handleSubmit, searchValue, setSearchValue } = props;
+  const { handleSubmit, searchValue, setSearchValue, onlyShort, setOnlyShort } =
+    props;
 
   const handleChange = (e) => {
     setSearchValue(e.target.value);
   };
   return (
     <div className="search-form__container">
-      <FilterCheckBox className="filter-check-box__mobile" />
+      <FilterCheckBox
+        className="filter-check-box__mobile"
+        onlyShort={onlyShort}
+        setOnlyShort={setOnlyShort}
+      />
       <form className="search-form__bar" onSubmit={handleSubmit}>
         <div className="search-form__icon"></div>
         <input
@@ -30,7 +35,11 @@ const SearchForm = (props) => {
           type="submit"
         ></button>
         <div className="search-form__stroke"></div>
-        <FilterCheckBox className="filter-check-box__normal" />
+        <FilterCheckBox
+          className="filter-check-box__normal"
+          onlyShort={onlyShort}
+          setOnlyShort={setOnlyShort}
+        />
       </form>
     </div>
   );
