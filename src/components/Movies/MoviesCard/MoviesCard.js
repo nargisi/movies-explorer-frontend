@@ -1,4 +1,5 @@
 import React from 'react';
+import { toHoursAndMinutes } from '../../../utils/utils';
 import '../MoviesCard/MoviesCard.css';
 
 const MoviesCard = (props) => {
@@ -26,7 +27,7 @@ const MoviesCard = (props) => {
           aria-label="Кнопка"
         />
       </div>
-      <div className="movies-card__duration">{duration}</div>
+      <div className="movies-card__duration">{toHoursAndMinutes(duration)}</div>
     </li>
   );
 };

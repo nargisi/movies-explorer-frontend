@@ -81,3 +81,6 @@ export const API_MOVIES_CONFIG = {
     'Content-Type': 'application/json',
   },
 };
+
+export const message =
+  'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';

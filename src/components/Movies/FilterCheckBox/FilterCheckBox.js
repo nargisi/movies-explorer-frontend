@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../FilterCheckBox/FilterCheckBox.css';
 
 const FilterCheckBox = ({ className }) => {
+  // const handleChangeCheckbox = () => {
+  //   setIsChecked(!isChecked);
+  // };
+
   return (
     <div className={`filter-check-box__container ${className}`}>
       <div className="filter-check-box__tumb">
@@ -9,6 +13,8 @@ const FilterCheckBox = ({ className }) => {
           type="checkbox"
           className="filter-check-box__toggle-button"
           id="toggle-button"
+          // checked={isChecked}
+          // onChange={handleChangeCheckbox}
         />
         <label className="filter-check-box__rounded" htmlFor="toggle-button" />
       </div>
