@@ -15,7 +15,7 @@ const MoviesCardList = (props) => {
             src={`https://api.nomoreparties.co/${movie.image.url}`}
             title={movie.nameRU}
             duration={movie.duration}
-            key={movie._id}
+            key={movie.id}
             liked={movie.liked}
             isSavedPage={isSavedPage}
           />

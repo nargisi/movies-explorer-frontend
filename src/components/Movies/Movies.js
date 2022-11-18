@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import movies_api from '../../utils/MoviesApi';
 import Footer from '../Footer/Footer';
 import '../Movies/Movies.css';
@@ -7,8 +7,8 @@ import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Preloader from './Preloader/Preloader';
 import SearchForm from './SearchForm/SearchForm';
 
-let width = window.innerWidth;
 const getMoviesRenderParams = () => {
+  const width = window.innerWidth;
   if (width > 1022) {
     return { moviesInRow: 4, step: 4, maxRows: 4 };
   }
@@ -18,9 +18,23 @@ const getMoviesRenderParams = () => {
     return { moviesInRow: 1, step: 2, maxRows: 4 };
   }
 };
+let timeOutFunctionId;
 
 const Movies = () => {
   const { moviesInRow, step, maxRows } = getMoviesRenderParams();
+
+  const [numberOfMoviesToRender, setNumberOfMoviesToRender] =
+    useState(moviesInRow);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      clearTimeout(timeOutFunctionId);
+      timeOutFunctionId = setTimeout(() => {
+        const { moviesInRow: moviesInRowResize } = getMoviesRenderParams();
+        setNumberOfMoviesToRender(moviesInRowResize);
+      }, 500);
+    });
+  }, []);
 
   const [onlyShort, setOnlyShort] = useState(
     JSON.parse(localStorage.getItem('checkboxState')) || false
@@ -37,9 +51,6 @@ const Movies = () => {
   const [searchIsCompleted, setSearchIsCompleted] = useState(false);
 
   const [error, setError] = useState(false);
-
-  const [numberOfMoviesToRender, setNumberOfMoviesToRender] =
-    useState(moviesInRow);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -58,7 +69,7 @@ const Movies = () => {
           )
         );
         localStorage.setItem('movies', JSON.stringify(moviesData));
-        localStorage.setItem('requestText', searchValue);
+        localStorage.setItem('requestText', JSON.stringify(searchValue));
         localStorage.setItem('checkboxState', JSON.stringify(onlyShort));
       })
       .catch(() => {
