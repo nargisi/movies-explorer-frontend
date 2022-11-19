@@ -13,12 +13,25 @@ class Main_Api {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  //   getUserInfo() {
-  //     return fetch(`${this._baseURL}/users/me`, {
-  //       headers: { ...this._headers, authorization: getToken() },
-  //       credentials: 'include',
-  //     }).then(this._checkResponse);
-  //   }
+  saveMovie() {
+    return fetch(`${this._baseURL}/movies`, {
+      headers: { ...this._headers, authorization: getToken() },
+    }).then(this._checkResponse);
+  }
+
+  getAboutUser() {
+    return fetch(`${this._baseURL}/users/me`, {
+      headers: { ...this._headers, authorization: getToken() },
+    }).then(this._checkResponse);
+  }
+
+  updateProfile({ email, name }) {
+    return fetch(`${this._baseURL}/users/me`, {
+      method: 'PATCH',
+      headers: { ...this._headers, authorization: getToken() },
+      body: JSON.stringify({ email, name }),
+    }).then(this._checkResponse);
+  }
 
   //   getInitialCards() {
   //     return fetch(`${this._baseURL}/cards`, {
@@ -70,11 +83,11 @@ class Main_Api {
   //     }).then(this._checkResponse);
   //   }
   // }
-
-  // const getToken = () => {
-  //   return `Bearer ${localStorage.getItem('jwt')}`;
 }
+const getToken = () => {
+  return `Bearer ${localStorage.getItem('jwt')}`;
+};
 
-const main_api = new Main_Api(API_MAIN_CONFIG);
+const mainApi = new Main_Api(API_MAIN_CONFIG);
 
-export default main_api;
+export default mainApi;

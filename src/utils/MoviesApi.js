@@ -24,22 +24,6 @@ class Movies_Api {
       });
   }
 
-  //   getInitialCards() {
-  //     return fetch(`${this._baseURL}/cards`, {
-  //       headers: { ...this._headers, authorization: getToken() },
-  //       credentials: 'include',
-  //     }).then(this._checkResponse);
-  //   }
-
-  //   updateProfile({ name, job }) {
-  //     return fetch(`${this._baseURL}/users/me`, {
-  //       method: 'PATCH',
-  //       credentials: 'include',
-  //       headers: { ...this._headers, authorization: getToken() },
-  //       body: JSON.stringify({ name, about: job }),
-  //     }).then(this._checkResponse);
-  //   }
-
   //   addNewCard({ place, href }) {
   //     return fetch(`${this._baseURL}/cards`, {
   //       method: 'POST',
@@ -79,6 +63,6 @@ class Movies_Api {
   //   return `Bearer ${localStorage.getItem('jwt')}`;
 }
 
-const movies_api = new Movies_Api(API_MOVIES_CONFIG);
+const moviesApi = new Movies_Api(API_MOVIES_CONFIG);
 
-export default movies_api;
+export default moviesApi;

@@ -8,13 +8,13 @@ const Input = (props) => {
         {props.label}
       </label>
       <input
-        className={`input ${props.className}`}
+        className={`input ${props.className || ''}`}
         required
         id={props.name}
         name={props.name}
         value={props.value}
         type={props.type}
-        onChange={() => {}}
+        onChange={props.onChange}
       />
     </>
   );

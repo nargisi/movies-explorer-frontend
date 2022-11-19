@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getMoviesRenderParams } from '../../utils/constants';
-import movies_api from '../../utils/MoviesApi';
+import moviesApi from '../../utils/MoviesApi';
 import Footer from '../Footer/Footer';
 import '../Movies/Movies.css';
 import Navigation from '../Navigation/Navigation';
@@ -48,7 +48,7 @@ const Movies = () => {
     e.preventDefault();
     setIsLoading(true);
     setError(false);
-    movies_api
+    moviesApi
       .getMovies()
       .then((moviesData) => {
         setMovies(
@@ -59,7 +59,7 @@ const Movies = () => {
           )
         );
         localStorage.setItem('movies', JSON.stringify(moviesData));
-        localStorage.setItem('requestText', JSON.stringify(searchValue));
+        localStorage.setItem('requestText', searchValue);
         localStorage.setItem('checkboxState', JSON.stringify(onlyShort));
       })
       .catch(() => {

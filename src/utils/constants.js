@@ -1,5 +1,5 @@
 export const API_MAIN_CONFIG = {
-  baseURL: 'https://movies.nargisi.nomoredomains.icu',
+  baseURL: 'https://api.movies.nargisi.nomoredomains.icu',
   headers: {
     'Content-Type': 'application/json',
   },

@@ -1,14 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import * as auth from '../../utils/auth.js';
 import Form from '../Form/Form';
 import FormSubmit from '../FormSubmit/FormSubmit';
 import Input from '../Input/Input';
 import '../Register/Register.css';
 
-const Register = () => {
+const Register = (/* { onStatusChange } */) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [error, setError] = useState('');
+
+  const history = useHistory();
+
+  const handleChangeEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleChangeName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    auth
+      .register(name, email, password)
+      .then((res) => {
+        if (res) {
+          history.push('/movies');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err.message);
+      });
+  };
+
   return (
     <section className="register__container">
       <div className="register">
-        <Form title="Добро пожаловать!">
+        <Form title="Добро пожаловать!" onSubmit={handleSubmit}>
           <Input
             label="Имя"
             name="Имя"
@@ -16,14 +52,16 @@ const Register = () => {
             required
             minlength="2"
             maxlength="30"
-            value="Анастасия"
+            value={name}
+            onChange={handleChangeName}
           />
           <Input
             label="E-mail"
             name="email"
             type="email"
             required
-            value="pochta@yandex.ru"
+            value={email}
+            onChange={handleChangeEmail}
           />
           <Input
             className="input__error"
@@ -31,17 +69,18 @@ const Register = () => {
             name="password"
             type="password"
             required
-            value="1234?67"
+            value={password}
+            onChange={handleChangePassword}
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
           />
-          <span className="form__error">Что-то пошло не так</span>
+          <span className="form__error">{error}</span>
+          <FormSubmit
+            link="/signin"
+            title="Зарегистрироваться"
+            question="Уже зарегистрированы? "
+            text="Войти"
+          />
         </Form>
-        <FormSubmit
-          link="/signin"
-          title="Зарегистрироваться"
-          question="Уже зарегистрированы? "
-          text="Войти"
-        />
       </div>
     </section>
   );
