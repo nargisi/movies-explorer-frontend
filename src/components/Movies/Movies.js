@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { getMoviesRenderParams } from '../../utils/constants';
 import movies_api from '../../utils/MoviesApi';
 import Footer from '../Footer/Footer';
 import '../Movies/Movies.css';
@@ -7,19 +8,6 @@ import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Preloader from './Preloader/Preloader';
 import SearchForm from './SearchForm/SearchForm';
 
-const getMoviesRenderParams = () => {
-  const width = window.innerWidth;
-  if (width > 1022) {
-    return { moviesInRow: 4, step: 4, maxRows: 4 };
-  }
-  if (width > 767) {
-    return { moviesInRow: 2, step: 2, maxRows: 4 };
-  } else {
-    return { moviesInRow: 1, step: 2, maxRows: 4 };
-  }
-};
-let timeOutFunctionId;
-
 const Movies = () => {
   const { moviesInRow, step, maxRows } = getMoviesRenderParams();
 
@@ -27,9 +15,11 @@ const Movies = () => {
     useState(moviesInRow);
 
   useEffect(() => {
+    let timeOutFunctionId;
     window.addEventListener('resize', () => {
       clearTimeout(timeOutFunctionId);
       timeOutFunctionId = setTimeout(() => {
+        console.log(window.innerWidth);
         const { moviesInRow: moviesInRowResize } = getMoviesRenderParams();
         setNumberOfMoviesToRender(moviesInRowResize);
       }, 500);

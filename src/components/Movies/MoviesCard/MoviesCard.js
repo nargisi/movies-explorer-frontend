@@ -6,11 +6,12 @@ const MoviesCard = (props) => {
   const { liked, src, title, duration, isSavedPage, trailerLink } = props;
   // Создаём переменную, которую после зададим в `className` для кнопки
   let cardButtonClassName;
+  console.log(liked);
   if (isSavedPage) {
     cardButtonClassName = `movies-card__button movies-card__button-delete`;
   } else {
     cardButtonClassName = `movies-card__button ${
-      liked ? ' movies-card__button-like' : ' '
+      liked ? ' movies-card__button-like' : 'movies-card__button-unlike '
     }`;
   }
 

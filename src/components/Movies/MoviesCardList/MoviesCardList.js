@@ -3,7 +3,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 import '../MoviesCardList/MoviesCardList.css';
 
 const MoviesCardList = (props) => {
-  const { movies, isSavedPage = false } = props;
+  const { movies, isSavedPage = false, liked = false } = props;
 
   return (
     <div className="movies-card-list__container">
@@ -16,7 +16,7 @@ const MoviesCardList = (props) => {
             title={movie.nameRU}
             duration={movie.duration}
             key={movie.id}
-            liked={movie.liked}
+            liked={liked}
             isSavedPage={isSavedPage}
           />
         ))}

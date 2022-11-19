@@ -43,6 +43,11 @@
 }
 
 
+.movies-card__button-unlike{
+    background-image: url(../../../images/unlike.svg);
+}
+
+
 .movies-card__button-delete{
     background-image: url(../../../images/cross.svg);
     visibility: hidden;
