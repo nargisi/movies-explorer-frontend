@@ -34,6 +34,9 @@ const Profile = () => {
           email: res.data.email,
         });
         setMessage('Данные успешно изменены!');
+        setTimeout(() => {
+          setMessage('');
+        }, 2000);
       })
       .catch((err) => {
         console.log(err);
