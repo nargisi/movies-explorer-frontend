@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 import * as auth from '../../utils/auth.js';
 import Form from '../Form/Form';
 import FormSubmit from '../FormSubmit/FormSubmit';
@@ -7,6 +8,7 @@ import Input from '../Input/Input';
 import '../Register/Register.css';
 
 const Register = (/* { onStatusChange } */) => {
+  const { setShouldFetchUserData } = useContext(CurrentUserContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
@@ -31,9 +33,11 @@ const Register = (/* { onStatusChange } */) => {
     auth
       .register(name, email, password)
       .then((res) => {
-        if (res) {
-          history.push('/movies');
-        }
+        return auth.autorise(email, password);
+      })
+      .then(() => {
+        setShouldFetchUserData(true);
+        history.push('/movies');
       })
       .catch((err) => {
         console.log(err);

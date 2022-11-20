@@ -33,7 +33,12 @@ export const autorise = (email, password) => {
     },
     body: JSON.stringify({ email, password }),
   })
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.status === 401) {
+        throw new Error('Неправильная почта или пароль');
+      }
+      return res.json();
+    })
     .then((res) => {
       if (res) {
         console.log('token', res.data);

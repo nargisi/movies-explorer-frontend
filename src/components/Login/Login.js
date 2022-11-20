@@ -2,13 +2,12 @@ import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 import * as auth from '../../utils/auth.js';
-import mainApi from '../../utils/MainApi.js';
 import Form from '../Form/Form';
 import FormSubmit from '../FormSubmit/FormSubmit';
 import Input from '../Input/Input';
 
-const Login = () => {
-  const { setCurrentUser } = useContext(CurrentUserContext);
+const Login = ({ fetchUserData }) => {
+  const { setShouldFetchUserData } = useContext(CurrentUserContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -22,18 +21,14 @@ const Login = () => {
     }
     auth
       .autorise(email, password)
-      .then((token) => {
+      .then(() => {
         setEmail('');
         setPassword('');
-        localStorage.setItem('jwt', token);
-        return mainApi.getAboutUser();
-      })
-      .then((res) => {
-        setCurrentUser(res.data);
+        setShouldFetchUserData(true);
         history.push('/movies');
       })
       .catch((err) => {
-        console.log(err);
+        console.log('signin err!!!!!!!!!!!!!!!!!!!!!', err);
         setError('Что-то пошло не так! Попробуйте еще раз!');
       });
   };

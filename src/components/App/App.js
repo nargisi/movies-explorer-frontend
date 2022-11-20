@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
@@ -10,13 +10,43 @@ import Main from '../Main/Main';
 import '../App/App.css';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { Redirect } from 'react-router-dom';
+import mainApi from '../../utils/MainApi';
+import Preloader from '../Movies/Preloader/Preloader';
+import ProtectedRoute from '../ProtectedRoute';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [shouldFetchUserData, setShouldFetchUserData] = useState(
+    localStorage.getItem('jwt') ? true : false
+  );
+
+  useEffect(() => {
+    if (shouldFetchUserData) {
+      mainApi
+        .getAboutUser()
+        .then((res) => {
+          if (res) {
+            setCurrentUser(res.data);
+            setShouldFetchUserData(false);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [shouldFetchUserData]);
+
+  if (shouldFetchUserData && !currentUser) {
+    return <Preloader />;
+  }
 
   return (
     <CurrentUserContext.Provider
-      value={{ currentUser: currentUser, setCurrentUser: setCurrentUser }}
+      value={{
+        currentUser: currentUser,
+        setCurrentUser: setCurrentUser,
+        setShouldFetchUserData: setShouldFetchUserData,
+      }}
     >
       <div className="page">
         <Switch>
@@ -26,18 +56,12 @@ const App = () => {
           <Route path="/signup">
             <Register />
           </Route>
-          <Route path="/profile">
-            <Profile />
-          </Route>
+          <ProtectedRoute component={Profile} path="/profile" />
           <Route exact path="/">
             <Main />
           </Route>
-          <Route path="/movies">
-            <Movies />
-          </Route>
-          <Route path="/saved-movies">
-            <SavedMovies />
-          </Route>
+          <ProtectedRoute component={Movies} path="/movies" />
+          <ProtectedRoute component={SavedMovies} path="/saved-movies" />
           <Route exact path="/">
             {currentUser !== null ? (
               <Redirect to="/" />
