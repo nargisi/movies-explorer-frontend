@@ -34,18 +34,13 @@ const Movies = () => {
     JSON.parse(localStorage.getItem('movies')) || []
   );
 
-  const [searchValue, setSearchValue] = useState(
-    localStorage.getItem('requestText') || ''
-  );
-
   const [searchIsCompleted, setSearchIsCompleted] = useState(false);
 
   const [error, setError] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = ({ searchValue }) => {
     setIsLoading(true);
     setError(false);
     moviesApi
@@ -102,9 +97,7 @@ const Movies = () => {
       <Navigation />
       <section className="movies__container">
         <SearchForm
-          handleSubmit={handleSubmit}
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
+          onSubmit={handleSubmit}
           setOnlyShort={setOnlyShort}
           onlyShort={onlyShort}
         />

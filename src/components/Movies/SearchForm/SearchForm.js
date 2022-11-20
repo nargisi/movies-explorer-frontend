@@ -1,14 +1,21 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 import FilterCheckBox from '../FilterCheckBox/FilterCheckBox';
 import '../SearchForm/SearchForm.css';
 
 const SearchForm = (props) => {
-  const { handleSubmit, searchValue, setSearchValue, onlyShort, setOnlyShort } =
-    props;
+  const { onSubmit, onlyShort, setOnlyShort } = props;
 
-  const handleChange = (e) => {
-    setSearchValue(e.target.value);
+  const defaultValues = {
+    searchValue: localStorage.getItem('requestText') || '',
   };
+  const {
+    register,
+    formState: { errors, isValid },
+    handleSubmit,
+  } = useForm({ defaultValues });
+
+  console.log('search errors', errors, isValid);
   return (
     <div className="search-form__container">
       <FilterCheckBox
@@ -16,19 +23,23 @@ const SearchForm = (props) => {
         onlyShort={onlyShort}
         setOnlyShort={setOnlyShort}
       />
-      <form className="search-form__bar" onSubmit={handleSubmit}>
+      <form className="search-form__bar" onSubmit={handleSubmit(onSubmit)}>
         <div className="search-form__icon"></div>
         <input
-          id="search-form__input"
           className="search-form__input"
           type="text"
-          value={searchValue}
-          name="text"
           placeholder="Фильм"
-          required
-          onChange={handleChange}
-        ></input>
-        <span id="search-form__input-error"></span>
+          {...register('searchValue', {
+            required: 'Нужно ввести ключевое слово',
+          })}
+        />
+        <div className="search-form__error">
+          {errors?.searchValue && (
+            <p className="input__error">
+              {errors?.searchValue?.message || 'Ошибка!'}
+            </p>
+          )}
+        </div>
         <button
           className="search-form__button"
           aria-label="Искать"

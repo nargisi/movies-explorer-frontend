@@ -1,5 +1,5 @@
 .profile__container{
-    padding: 74px 70px 70px;
+    padding: 74px 70px 0;
 }
 
 
@@ -38,11 +38,11 @@
     /* identical to box height */
     text-align: right;
     color: #000000;
-    border: none;
+    border: none; 
 }
 
 
-.profile__form-input:last-child{
+.profile__form-input_type-last{
     padding-bottom: 0;
     padding-top: 17px;
     border-bottom: none;
@@ -101,8 +101,10 @@
     line-height: 16px;
     text-align: center;
     color: #FF4062;
+    background-color: #FFFFFF;
     text-decoration: none;
     cursor: pointer;
+    border: none;
 }
 
 
@@ -110,6 +112,18 @@
     opacity: 0.8;
 }
 
+
+.profile__message{
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FF4062;
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-align: center;
+}
 
 @media screen and (max-width: 767px) {
     .profile__container{

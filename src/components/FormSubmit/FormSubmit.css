@@ -17,6 +17,11 @@
 }
 
 
+.form-submit__button:disabled {
+    background: #e9e9e9;
+}
+
+
 .form-submit__button:hover {
     opacity: 0.85;
 }

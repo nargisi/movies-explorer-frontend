@@ -4,31 +4,34 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 import * as auth from '../../utils/auth.js';
 import Form from '../Form/Form';
 import FormSubmit from '../FormSubmit/FormSubmit';
+import { useForm } from 'react-hook-form';
 import Input from '../Input/Input';
 
 const Login = ({ fetchUserData }) => {
   const { setShouldFetchUserData } = useContext(CurrentUserContext);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+
+  const {
+    register,
+    formState: { errors, isValid },
+    handleSubmit,
+  } = useForm({ mode: 'onBlur' });
 
   const history = useHistory();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const [error, setError] = useState('');
+
+  const onSubmit = ({ email, password }) => {
     if (!email || !password) {
       return;
     }
     auth
       .autorise(email, password)
       .then(() => {
-        setEmail('');
-        setPassword('');
         setShouldFetchUserData(true);
         history.push('/movies');
       })
       .catch((err) => {
-        console.log('signin err!!!!!!!!!!!!!!!!!!!!!', err);
+        console.log(err);
         setError('Что-то пошло не так! Попробуйте еще раз!');
       });
   };
@@ -36,27 +39,40 @@ const Login = ({ fetchUserData }) => {
   return (
     <section className="register__container">
       <div className="register">
-        <Form title="Рады видеть!" onSubmit={handleSubmit}>
+        <Form title="Рады видеть!" onSubmit={handleSubmit(onSubmit)} novalidate>
           <Input
+            type="email"
+            required="Поле обязательно к заполнению!"
             label="E-mail"
             name="email"
-            type="email"
-            required
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
+            pattern={{
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: 'Неверный E-mail!',
             }}
+            register={register}
           />
+          <div className="input__error">
+            {errors?.email && (
+              <p className="input__error">
+                {errors?.email?.message || 'Ошибка!'}
+              </p>
+            )}
+          </div>
           <Input
+            type="password"
             label="Пароль"
             name="password"
-            type="password"
-            required
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            required="Поле обязательно к заполнению!"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            register={register}
           />
+          <div className="input__error">
+            {errors?.password && (
+              <p className="input__error">
+                {errors?.password?.message || 'Ошибка!'}
+              </p>
+            )}
+          </div>
           <span className="form__error">{error}</span>
           <div className="register__submit-container">
             <FormSubmit
@@ -64,6 +80,7 @@ const Login = ({ fetchUserData }) => {
               title="Войти"
               question="Ещё не зарегистрированы? "
               text="Регистрация"
+              disabled={!isValid}
             />
           </div>
         </Form>

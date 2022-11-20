@@ -1,5 +1,5 @@
 .register{
-    max-width: 396px;
+    width: 396px;
     margin: 0 auto;
 }
 
@@ -23,7 +23,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        max-width: 260px;
+        width: 260px;
     } 
     .register__submit-container{
         max-width: 260px;

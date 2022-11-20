@@ -47,21 +47,3 @@ export const autorise = (email, password) => {
       }
     });
 };
-
-// export const getContent = (token) => {
-//   return fetch(`${BASE_URL}/users/me`, {
-//     method: 'GET',
-//     credentials: 'include',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       authorization: `Bearer ${token}`,
-//     },
-//   })
-//     .then((res) => {
-//       if (res.status === 401) {
-//         throw new Error('Invalid token');
-//       }
-//       return res.json();
-//     })
-//     .then((data) => data);
-// };
