@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getMoviesRenderParams } from '../../utils/constants';
+import mainApi from '../../utils/MainApi';
 import moviesApi from '../../utils/MoviesApi';
 import Footer from '../Footer/Footer';
 import '../Movies/Movies.css';
@@ -13,6 +14,19 @@ const Movies = () => {
 
   const [numberOfMoviesToRender, setNumberOfMoviesToRender] =
     useState(moviesInRow);
+
+  const [savedMovies, setSavedMovies] = useState([]);
+
+  useEffect(() => {
+    mainApi
+      .getMovies()
+      .then((res) => {
+        setSavedMovies(res.data);
+      })
+      .catch(() => {
+        setError(true);
+      });
+  }, []);
 
   useEffect(() => {
     let timeOutFunctionId;
@@ -39,6 +53,13 @@ const Movies = () => {
   const [error, setError] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const moviesWithLikes = movies.map((movie) => {
+    return {
+      ...movie,
+      liked: savedMovies.find((savedMovie) => movie.id === savedMovie.movieId),
+    };
+  });
 
   const handleSubmit = ({ searchValue }) => {
     setIsLoading(true);
@@ -79,7 +100,9 @@ const Movies = () => {
     component = <Preloader />;
   } else if (movies.length) {
     component = (
-      <MoviesCardList movies={movies.slice(0, numberOfMoviesToRender)} />
+      <MoviesCardList
+        movies={moviesWithLikes.slice(0, numberOfMoviesToRender)}
+      />
     );
   } else if (error) {
     component = (

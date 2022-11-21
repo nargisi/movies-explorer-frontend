@@ -13,8 +13,10 @@ class Main_Api {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  saveMovie() {
+  saveMovie(data) {
     return fetch(`${this._baseURL}/movies`, {
+      method: 'POST',
+      body: JSON.stringify(data),
       headers: { ...this._headers, authorization: getToken() },
     }).then(this._checkResponse);
   }
@@ -25,11 +27,17 @@ class Main_Api {
     }).then(this._checkResponse);
   }
 
-  updateProfile({ email, name }) {
+  updateProfile(data) {
     return fetch(`${this._baseURL}/users/me`, {
       method: 'PATCH',
       headers: { ...this._headers, authorization: getToken() },
-      body: JSON.stringify({ email, name }),
+      body: JSON.stringify(data),
+    }).then(this._checkResponse);
+  }
+
+  getMovies() {
+    return fetch(`${this._baseURL}/movies`, {
+      headers: { ...this._headers, authorization: getToken() },
     }).then(this._checkResponse);
   }
 

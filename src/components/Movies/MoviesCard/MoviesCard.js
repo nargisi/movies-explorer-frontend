@@ -4,7 +4,14 @@ import { toHoursAndMinutes } from '../../../utils/utils';
 import '../MoviesCard/MoviesCard.css';
 
 const MoviesCard = (props) => {
-  const { liked, src, title, duration, isSavedPage, trailerLink } = props;
+  const { liked, title, duration, isSavedPage, trailerLink, movie } = props;
+  const imageUrl =
+    typeof movie.image === 'string'
+      ? movie.image
+      : `https://api.nomoreparties.co/${movie.image.url}`;
+  const thumbnailUrl = movie.thumbnail
+    ? movie.thumbnail
+    : `https://api.nomoreparties.co/${movie.image.formats.thumbnail.url}`;
   // Создаём переменную, которую после зададим в `className` для кнопки
   let cardButtonClassName;
   if (isSavedPage) {
@@ -16,8 +23,34 @@ const MoviesCard = (props) => {
   }
 
   const handleLikeClick = () => {
-    mainApi.saveMovie().then((data) => {
-      console.log(data);
+    const {
+      country,
+      director,
+      duration,
+      year,
+      description,
+      trailerLink,
+      id,
+      nameRU,
+      nameEN,
+    } = movie;
+
+    const payload = {
+      country: country,
+      director: director,
+      duration: duration,
+      year: year,
+      description: description,
+      image: imageUrl,
+      trailerLink: trailerLink,
+      thumbnail: thumbnailUrl,
+      movieId: id,
+      nameRU: nameRU,
+      nameEN: nameEN,
+    };
+
+    mainApi.saveMovie(payload).then((res) => {
+      console.log(res.data);
     });
   };
 
@@ -30,7 +63,7 @@ const MoviesCard = (props) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img className="movies-card__img" src={src} alt={title} />
+          <img className="movies-card__img" src={imageUrl} alt={title} />
         </a>
       </div>
       <div className="movies-card__sign">

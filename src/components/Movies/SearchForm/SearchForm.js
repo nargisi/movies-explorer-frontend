@@ -15,7 +15,6 @@ const SearchForm = (props) => {
     handleSubmit,
   } = useForm({ defaultValues });
 
-  console.log('search errors', errors, isValid);
   return (
     <div className="search-form__container">
       <FilterCheckBox

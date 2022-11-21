@@ -3,7 +3,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 import '../MoviesCardList/MoviesCardList.css';
 
 const MoviesCardList = (props) => {
-  const { movies, isSavedPage = false, liked = false } = props;
+  const { movies, isSavedPage = false } = props;
 
   return (
     <div className="movies-card-list__container">
@@ -12,11 +12,10 @@ const MoviesCardList = (props) => {
           <MoviesCard
             trailerLink={movie.trailerLink}
             movie={movie}
-            src={`https://api.nomoreparties.co/${movie.image.url}`}
             title={movie.nameRU}
             duration={movie.duration}
-            key={movie.id}
-            liked={liked}
+            key={movie.id || movie.movieId}
+            liked={movie.liked}
             isSavedPage={isSavedPage}
           />
         ))}
