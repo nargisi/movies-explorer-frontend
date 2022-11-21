@@ -83,6 +83,7 @@
     align-items: center;
     margin-bottom: 29px;
     box-sizing: border-box;
+    min-height: 35px;
 }
 
 
