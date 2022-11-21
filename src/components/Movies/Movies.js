@@ -74,7 +74,7 @@ const Movies = () => {
         setMovies(
           moviesData.filter(
             (movie) =>
-              movie.nameRU.toLowerCase().includes(searchValue) &&
+              movie.nameRU.toLowerCase().includes(searchValue.toLowerCase()) &&
               (onlyShort ? movie.duration <= 40 : true)
           )
         );
