@@ -55,9 +55,13 @@ const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const moviesWithLikes = movies.map((movie) => {
+    const savedMovie = savedMovies.find(
+      (savedMovie) => movie.id === savedMovie.movieId
+    );
     return {
       ...movie,
-      liked: savedMovies.find((savedMovie) => movie.id === savedMovie.movieId),
+      liked: !!savedMovie,
+      savedMovieId: savedMovie ? savedMovie._id : null,
     };
   });
 
@@ -95,12 +99,23 @@ const Movies = () => {
     }
   };
 
+  const handleChangeLike = (movie, liked) => {
+    if (liked) {
+      setSavedMovies([...savedMovies, movie]);
+    } else {
+      setSavedMovies(
+        savedMovies.filter((savedMovie) => savedMovie._id !== movie._id)
+      );
+    }
+  };
+
   let component;
   if (isLoading) {
     component = <Preloader />;
   } else if (movies.length) {
     component = (
       <MoviesCardList
+        onLike={handleChangeLike}
         movies={moviesWithLikes.slice(0, numberOfMoviesToRender)}
       />
     );

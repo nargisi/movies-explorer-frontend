@@ -93,6 +93,12 @@
 }
 
 
+.profile__submit:disabled{
+    color: #3f3f3f;
+    cursor: none;
+}
+
+
 .profile__exit{
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;

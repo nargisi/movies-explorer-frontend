@@ -11,6 +11,12 @@ const SavedMovies = () => {
   const [savedMovies, setSavedMovies] = useState([]);
   const [error, setError] = useState('');
 
+  const handleChangeLike = (movie) => {
+    setSavedMovies(
+      savedMovies.filter((savedMovie) => savedMovie._id !== movie._id)
+    );
+  };
+
   useEffect(() => {
     mainApi
       .getMovies()
@@ -27,7 +33,11 @@ const SavedMovies = () => {
       <Navigation />
       <section className="saved-movies__container">
         <SearchForm />
-        <MoviesCardList isSavedPage movies={savedMovies} />
+        <MoviesCardList
+          isSavedPage
+          movies={savedMovies}
+          onLike={handleChangeLike}
+        />
         <div className="movies__add-container"></div>
         <Footer />
       </section>

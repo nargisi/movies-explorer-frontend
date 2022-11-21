@@ -4,7 +4,9 @@ import { toHoursAndMinutes } from '../../../utils/utils';
 import '../MoviesCard/MoviesCard.css';
 
 const MoviesCard = (props) => {
-  const { liked, title, duration, isSavedPage, trailerLink, movie } = props;
+  console.log('ard props', props);
+  const { liked, title, duration, isSavedPage, trailerLink, movie, onLike } =
+    props;
   const imageUrl =
     typeof movie.image === 'string'
       ? movie.image
@@ -23,35 +25,42 @@ const MoviesCard = (props) => {
   }
 
   const handleLikeClick = () => {
-    const {
-      country,
-      director,
-      duration,
-      year,
-      description,
-      trailerLink,
-      id,
-      nameRU,
-      nameEN,
-    } = movie;
+    if (liked || isSavedPage) {
+      mainApi
+        .deleteMovie(isSavedPage ? movie._id : movie.savedMovieId)
+        .then((res) => {
+          onLike(res.data, false);
+        });
+    } else {
+      const {
+        country,
+        director,
+        duration,
+        year,
+        description,
+        trailerLink,
+        id,
+        nameRU,
+        nameEN,
+      } = movie;
 
-    const payload = {
-      country: country,
-      director: director,
-      duration: duration,
-      year: year,
-      description: description,
-      image: imageUrl,
-      trailerLink: trailerLink,
-      thumbnail: thumbnailUrl,
-      movieId: id,
-      nameRU: nameRU,
-      nameEN: nameEN,
-    };
-
-    mainApi.saveMovie(payload).then((res) => {
-      console.log(res.data);
-    });
+      const payload = {
+        country: country,
+        director: director,
+        duration: duration,
+        year: year,
+        description: description,
+        image: imageUrl,
+        trailerLink: trailerLink,
+        thumbnail: thumbnailUrl,
+        movieId: id,
+        nameRU: nameRU,
+        nameEN: nameEN,
+      };
+      mainApi.saveMovie(payload).then((res) => {
+        onLike(res.data, true);
+      });
+    }
   };
 
   return (
