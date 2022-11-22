@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { getSavedMoviesRenderParams } from '../../utils/constants';
 import mainApi from '../../utils/MainApi';
-// import { SavedMoviesArr } from '../../utils/constants';
 import Footer from '../Footer/Footer';
 import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList';
 import SearchForm from '../Movies/SearchForm/SearchForm';
@@ -8,7 +8,19 @@ import Navigation from '../Navigation/Navigation';
 import '../SavedMovies/SavedMovies.css';
 
 const SavedMovies = () => {
+  const { moviesInRow, maxRows } = getSavedMoviesRenderParams();
+
+  const [numberOfMoviesToRender, setNumberOfMoviesToRender] = useState(
+    moviesInRow * maxRows
+  );
+
   const [savedMovies, setSavedMovies] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
+
+  const [onlyShort, setOnlyShort] = useState(false);
+
+  const [searchIsCompleted, setSearchIsCompleted] = useState(false);
+
   const [error, setError] = useState('');
 
   const handleChangeLike = (movie) => {
@@ -28,16 +40,61 @@ const SavedMovies = () => {
       });
   }, []);
 
+  useEffect(() => {
+    let timeOutFunctionId;
+    window.addEventListener('resize', () => {
+      clearTimeout(timeOutFunctionId);
+      timeOutFunctionId = setTimeout(() => {
+        const { moviesInRow: moviesInRowResize } = getSavedMoviesRenderParams();
+        setNumberOfMoviesToRender(moviesInRowResize);
+      }, 500);
+    });
+  }, []);
+
+  const moviesToRender = useMemo(() => {
+    return savedMovies.filter(
+      (savedMovie) =>
+        (searchIsCompleted
+          ? savedMovie.nameRU.toLowerCase().includes(searchValue.toLowerCase())
+          : true) && (onlyShort ? savedMovie.duration <= 40 : true)
+    );
+  }, [savedMovies, searchValue, onlyShort, searchIsCompleted]);
+
+  let component;
+  if (moviesToRender.length) {
+    component = (
+      <MoviesCardList
+        onLike={handleChangeLike}
+        movies={moviesToRender.slice(0, numberOfMoviesToRender)}
+        isSavedPage
+      />
+    );
+  } else if (error) {
+    component = (
+      <span className="spanError">
+        Во время запроса произошла ошибка. Возможно, проблема с соединением или
+        сервер недоступен. Подождите немного и попробуйте ещё раз
+      </span>
+    );
+  } else if (searchIsCompleted) {
+    component = <span className="spanError">Ничего не найдено</span>;
+  }
+
+  const handleSubmit = ({ searchValue }) => {
+    setSearchValue(searchValue);
+    setSearchIsCompleted(true);
+  };
+
   return (
     <>
       <Navigation />
       <section className="saved-movies__container">
-        <SearchForm />
-        <MoviesCardList
-          isSavedPage
-          movies={savedMovies}
-          onLike={handleChangeLike}
+        <SearchForm
+          onSubmit={handleSubmit}
+          setOnlyShort={setOnlyShort}
+          onlyShort={onlyShort}
         />
+        {component}
         <div className="movies__add-container"></div>
         <Footer />
       </section>

@@ -12,6 +12,10 @@ IP 84.201.167.18
 Frontend https://movies.nargisi.nomoredomains.icu/
 Backend https://api.movies.nargisi.nomoredomains.icu/
 
+## Ссылка на пул реквест
+
+https://github.com/nargisi/movies-explorer-frontend/pull/2
+
 **Figma**
 
 - [Ссылка на макет на Яндекс Диске](https://disk.yandex.ru/d/Nkhbi_rC_nYAYA)

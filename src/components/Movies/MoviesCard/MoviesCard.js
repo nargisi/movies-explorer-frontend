@@ -4,7 +4,6 @@ import { toHoursAndMinutes } from '../../../utils/utils';
 import '../MoviesCard/MoviesCard.css';
 
 const MoviesCard = (props) => {
-  console.log('ard props', props);
   const { liked, title, duration, isSavedPage, trailerLink, movie, onLike } =
     props;
   const imageUrl =

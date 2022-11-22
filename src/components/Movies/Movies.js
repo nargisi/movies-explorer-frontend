@@ -12,8 +12,9 @@ import SearchForm from './SearchForm/SearchForm';
 const Movies = () => {
   const { moviesInRow, step, maxRows } = getMoviesRenderParams();
 
-  const [numberOfMoviesToRender, setNumberOfMoviesToRender] =
-    useState(moviesInRow);
+  const [numberOfMoviesToRender, setNumberOfMoviesToRender] = useState(
+    moviesInRow * maxRows
+  );
 
   const [savedMovies, setSavedMovies] = useState([]);
 
@@ -33,7 +34,6 @@ const Movies = () => {
     window.addEventListener('resize', () => {
       clearTimeout(timeOutFunctionId);
       timeOutFunctionId = setTimeout(() => {
-        console.log(window.innerWidth);
         const { moviesInRow: moviesInRowResize } = getMoviesRenderParams();
         setNumberOfMoviesToRender(moviesInRowResize);
       }, 500);
@@ -138,6 +138,7 @@ const Movies = () => {
           onSubmit={handleSubmit}
           setOnlyShort={setOnlyShort}
           onlyShort={onlyShort}
+          defaultSearchValue={localStorage.getItem('requestText')}
         />
         {component}
         <div className="movies__add-container">

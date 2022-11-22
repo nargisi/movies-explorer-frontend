@@ -4,10 +4,10 @@ import FilterCheckBox from '../FilterCheckBox/FilterCheckBox';
 import '../SearchForm/SearchForm.css';
 
 const SearchForm = (props) => {
-  const { onSubmit, onlyShort, setOnlyShort } = props;
+  const { onSubmit, onlyShort, setOnlyShort, defaultSearchValue } = props;
 
   const defaultValues = {
-    searchValue: localStorage.getItem('requestText') || '',
+    searchValue: defaultSearchValue || '',
   };
   const {
     register,
