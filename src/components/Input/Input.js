@@ -16,8 +16,9 @@ const Input = ({
       {label}
     </label>
     <input
+      type={type}
       className="input"
-      {...register(name, { required, minLength, maxLength, type, pattern })}
+      {...register(name, { required, minLength, maxLength, pattern })}
     />
   </>
 );

@@ -13,6 +13,7 @@ import { Redirect } from 'react-router-dom';
 import mainApi from '../../utils/MainApi';
 import Preloader from '../Movies/Preloader/Preloader';
 import ProtectedRoute from '../ProtectedRoute';
+import ForbiddenRoute from '../ForbiddenRoute';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -50,25 +51,14 @@ const App = () => {
     >
       <div className="page">
         <Switch>
-          <Route path="/signin">
-            <Login />
-          </Route>
-          <Route path="/signup">
-            <Register />
-          </Route>
+          <ForbiddenRoute component={Login} path="/signin" />
+          <ForbiddenRoute component={Register} path="/signup" />
           <ProtectedRoute component={Profile} path="/profile" />
           <Route exact path="/">
             <Main />
           </Route>
           <ProtectedRoute component={Movies} path="/movies" />
           <ProtectedRoute component={SavedMovies} path="/saved-movies" />
-          <Route exact path="/">
-            {currentUser !== null ? (
-              <Redirect to="/" />
-            ) : (
-              <Redirect to="/signin" />
-            )}
-          </Route>
           <Route path="*">
             <PageNotFound />
           </Route>
