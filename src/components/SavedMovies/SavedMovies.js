@@ -1,5 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { getSavedMoviesRenderParams } from '../../utils/constants';
+import {
+  getSavedMoviesRenderParams,
+  ShortsDuration,
+} from '../../utils/constants';
 import mainApi from '../../utils/MainApi';
 import Footer from '../Footer/Footer';
 import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList';
@@ -56,7 +59,7 @@ const SavedMovies = () => {
       (savedMovie) =>
         (searchIsCompleted
           ? savedMovie.nameRU.toLowerCase().includes(searchValue.toLowerCase())
-          : true) && (onlyShort ? savedMovie.duration <= 40 : true)
+          : true) && (onlyShort ? savedMovie.duration <= ShortsDuration : true)
     );
   }, [savedMovies, searchValue, onlyShort, searchIsCompleted]);
 

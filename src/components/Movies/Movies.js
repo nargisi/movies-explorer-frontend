@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getMoviesRenderParams } from '../../utils/constants';
+import { getMoviesRenderParams, ShortsDuration } from '../../utils/constants';
 import mainApi from '../../utils/MainApi';
 import moviesApi from '../../utils/MoviesApi';
 import Footer from '../Footer/Footer';
@@ -10,13 +10,40 @@ import Preloader from './Preloader/Preloader';
 import SearchForm from './SearchForm/SearchForm';
 
 const Movies = () => {
-  const { moviesInRow, step, maxRows } = getMoviesRenderParams();
+  const { moviesInRow, step } = getMoviesRenderParams();
 
-  const [numberOfMoviesToRender, setNumberOfMoviesToRender] = useState(
-    moviesInRow * maxRows
-  );
+  const [numberOfMoviesToRender, setNumberOfMoviesToRender] =
+    useState(moviesInRow);
 
   const [savedMovies, setSavedMovies] = useState([]);
+
+  const [onlyShort, setOnlyShort] = useState(
+    JSON.parse(localStorage.getItem('checkboxState')) || false
+  );
+
+  const [movies, setMovies] = useState(
+    JSON.parse(localStorage.getItem('movies')) || []
+  );
+
+  const [searchIsCompleted, setSearchIsCompleted] = useState(false);
+
+  const [error, setError] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (movies.length === 0) {
+      moviesApi
+        .getMovies()
+        .then((res) => {
+          setMovies(res.data);
+          localStorage.setItem('movies', JSON.stringify(res.data));
+        })
+        .catch(() => {
+          setError(true);
+        });
+    }
+  }, []);
 
   useEffect(() => {
     mainApi
@@ -40,20 +67,6 @@ const Movies = () => {
     });
   }, []);
 
-  const [onlyShort, setOnlyShort] = useState(
-    JSON.parse(localStorage.getItem('checkboxState')) || false
-  );
-
-  const [movies, setMovies] = useState(
-    JSON.parse(localStorage.getItem('movies')) || []
-  );
-
-  const [searchIsCompleted, setSearchIsCompleted] = useState(false);
-
-  const [error, setError] = useState(false);
-
-  const [isLoading, setIsLoading] = useState(false);
-
   const moviesWithLikes = movies.map((movie) => {
     const savedMovie = savedMovies.find(
       (savedMovie) => movie.id === savedMovie.movieId
@@ -75,7 +88,7 @@ const Movies = () => {
           moviesData.filter(
             (movie) =>
               movie.nameRU.toLowerCase().includes(searchValue.toLowerCase()) &&
-              (onlyShort ? movie.duration <= 40 : true)
+              (onlyShort ? movie.duration <= ShortsDuration : true)
           )
         );
         localStorage.setItem('movies', JSON.stringify(moviesData));
@@ -143,7 +156,7 @@ const Movies = () => {
         {component}
         <div className="movies__add-container">
           {movies.length > numberOfMoviesToRender &&
-            numberOfMoviesToRender < maxRows * moviesInRow && (
+            numberOfMoviesToRender < moviesInRow && (
               <button
                 className="movies__add-button"
                 aria-label="Еще"
