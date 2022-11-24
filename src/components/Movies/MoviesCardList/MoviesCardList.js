@@ -4,7 +4,6 @@ import '../MoviesCardList/MoviesCardList.css';
 
 const MoviesCardList = (props) => {
   const { movies, isSavedPage = false, onLike } = props;
-  console.log('movies', movies);
   return (
     <div className="movies-card-list__container">
       <ul className="movies-card-list__box">

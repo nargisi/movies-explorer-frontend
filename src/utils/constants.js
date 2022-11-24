@@ -15,12 +15,12 @@ export const API_MOVIES_CONFIG = {
 export const getMoviesRenderParams = () => {
   const width = window.innerWidth;
   if (width > 1022) {
-    return { moviesInRow: 4, step: 4 };
+    return { moviesInRow: 4, step: 4, maxRows: 4 };
   }
   if (width > 767) {
-    return { moviesInRow: 2, step: 2 };
+    return { moviesInRow: 2, step: 2, maxRows: 4 };
   } else {
-    return { moviesInRow: 1, step: 2 };
+    return { moviesInRow: 1, step: 2, maxRows: 5 };
   }
 };
 

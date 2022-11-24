@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { getMoviesRenderParams, ShortsDuration } from '../../utils/constants';
 import mainApi from '../../utils/MainApi';
 import moviesApi from '../../utils/MoviesApi';
@@ -10,12 +10,16 @@ import Preloader from './Preloader/Preloader';
 import SearchForm from './SearchForm/SearchForm';
 
 const Movies = () => {
-  const { moviesInRow, step } = getMoviesRenderParams();
+  const { moviesInRow, step, maxRows } = getMoviesRenderParams();
 
-  const [numberOfMoviesToRender, setNumberOfMoviesToRender] =
-    useState(moviesInRow);
+  const [numberOfMoviesToRender, setNumberOfMoviesToRender] = useState(
+    moviesInRow * maxRows
+  );
 
   const [savedMovies, setSavedMovies] = useState([]);
+  const [foundMovies, setFoundMovies] = useState(
+    JSON.parse(localStorage.getItem('foundMovies')) || []
+  );
 
   const [onlyShort, setOnlyShort] = useState(
     JSON.parse(localStorage.getItem('checkboxState')) || false
@@ -35,15 +39,18 @@ const Movies = () => {
     if (movies.length === 0) {
       moviesApi
         .getMovies()
-        .then((res) => {
-          setMovies(res.data);
-          localStorage.setItem('movies', JSON.stringify(res.data));
+        .then((moviesData) => {
+          setMovies(moviesData);
+          localStorage.setItem('movies', JSON.stringify(moviesData));
         })
         .catch(() => {
           setError(true);
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
     }
-  }, []);
+  }, [movies.length]);
 
   useEffect(() => {
     mainApi
@@ -58,50 +65,52 @@ const Movies = () => {
 
   useEffect(() => {
     let timeOutFunctionId;
-    window.addEventListener('resize', () => {
+    const resizeHandler = () => {
       clearTimeout(timeOutFunctionId);
       timeOutFunctionId = setTimeout(() => {
-        const { moviesInRow: moviesInRowResize } = getMoviesRenderParams();
-        setNumberOfMoviesToRender(moviesInRowResize);
+        const { moviesInRow: moviesInRowResize, maxRows: maxRowsResize } =
+          getMoviesRenderParams();
+        setNumberOfMoviesToRender(moviesInRowResize * maxRowsResize);
       }, 500);
-    });
+    };
+    window.addEventListener('resize', resizeHandler);
+    return () => window.removeEventListener('resize', resizeHandler);
   }, []);
 
-  const moviesWithLikes = movies.map((movie) => {
-    const savedMovie = savedMovies.find(
-      (savedMovie) => movie.id === savedMovie.movieId
-    );
-    return {
-      ...movie,
-      liked: !!savedMovie,
-      savedMovieId: savedMovie ? savedMovie._id : null,
-    };
-  });
+  const moviesWithLikes = useMemo(() => {
+    const searchValue = localStorage.getItem('requestText');
+    const moviesCollection = searchValue || onlyShort ? foundMovies : movies;
+    return moviesCollection.map((movie) => {
+      const savedMovie = savedMovies.find(
+        (savedMovie) => movie.id === savedMovie.movieId
+      );
+      return {
+        ...movie,
+        liked: !!savedMovie,
+        savedMovieId: savedMovie ? savedMovie._id : null,
+      };
+    });
+  }, [movies, foundMovies, savedMovies, onlyShort]);
 
   const handleSubmit = ({ searchValue }) => {
-    setIsLoading(true);
-    setError(false);
-    moviesApi
-      .getMovies()
-      .then((moviesData) => {
-        setMovies(
-          moviesData.filter(
-            (movie) =>
-              movie.nameRU.toLowerCase().includes(searchValue.toLowerCase()) &&
-              (onlyShort ? movie.duration <= ShortsDuration : true)
-          )
-        );
-        localStorage.setItem('movies', JSON.stringify(moviesData));
-        localStorage.setItem('requestText', searchValue);
-        localStorage.setItem('checkboxState', JSON.stringify(onlyShort));
-      })
-      .catch(() => {
-        setError(true);
-      })
-      .finally(() => {
-        setIsLoading(false);
-        setSearchIsCompleted(true);
-      });
+    // setIsLoading(true);
+    // setError(false);
+    if (searchValue || onlyShort) {
+      const foundMovies = movies.filter(
+        (movie) =>
+          movie.nameRU.toLowerCase().includes(searchValue.toLowerCase()) &&
+          (onlyShort ? movie.duration <= ShortsDuration : true)
+      );
+      setFoundMovies(foundMovies);
+      localStorage.setItem('foundMovies', JSON.stringify(foundMovies));
+    } else {
+      setFoundMovies([]);
+      localStorage.removeItem('foundMovies');
+    }
+    localStorage.setItem('requestText', searchValue);
+    localStorage.setItem('checkboxState', JSON.stringify(onlyShort));
+
+    setSearchIsCompleted(true);
   };
 
   const handleClickMore = () => {
@@ -125,7 +134,7 @@ const Movies = () => {
   let component;
   if (isLoading) {
     component = <Preloader />;
-  } else if (movies.length) {
+  } else if (moviesWithLikes.length) {
     component = (
       <MoviesCardList
         onLike={handleChangeLike}
@@ -155,16 +164,15 @@ const Movies = () => {
         />
         {component}
         <div className="movies__add-container">
-          {movies.length > numberOfMoviesToRender &&
-            numberOfMoviesToRender < moviesInRow && (
-              <button
-                className="movies__add-button"
-                aria-label="Еще"
-                onClick={handleClickMore}
-              >
-                Ещё
-              </button>
-            )}
+          {moviesWithLikes.length > numberOfMoviesToRender && (
+            <button
+              className="movies__add-button"
+              aria-label="Еще"
+              onClick={handleClickMore}
+            >
+              Ещё
+            </button>
+          )}
         </div>
         <Footer />
       </section>

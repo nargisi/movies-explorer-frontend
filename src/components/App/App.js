@@ -9,17 +9,32 @@ import PageNotFound from '../PageNotFound/PageNotFound';
 import Main from '../Main/Main';
 import '../App/App.css';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { Redirect } from 'react-router-dom';
 import mainApi from '../../utils/MainApi';
 import Preloader from '../Movies/Preloader/Preloader';
 import ProtectedRoute from '../ProtectedRoute';
 import ForbiddenRoute from '../ForbiddenRoute';
+import { useHistory } from 'react-router-dom';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [shouldFetchUserData, setShouldFetchUserData] = useState(
     localStorage.getItem('jwt') ? true : false
   );
+  const history = useHistory();
+
+  useEffect(() => {
+    const handleInvalidateToken = (event) => {
+      if (currentUser) {
+        localStorage.clear();
+        setCurrentUser(null);
+        history.push('/');
+      }
+    };
+    window.addEventListener('invalidate_token', handleInvalidateToken);
+
+    return () =>
+      window.removeEventListener('invalidate_token', handleInvalidateToken);
+  }, [currentUser, history]);
 
   useEffect(() => {
     if (shouldFetchUserData) {

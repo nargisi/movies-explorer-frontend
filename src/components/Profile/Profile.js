@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import mainApi from '../../utils/MainApi';
@@ -16,9 +16,16 @@ const Profile = () => {
 
   const {
     register,
-    formState: { errors, isValid, isDirty },
+    formState: { errors, isValid, isDirty, isSubmitSuccessful },
     handleSubmit,
+    reset,
   } = useForm({ defaultValues });
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({}, { keepValues: true });
+    }
+  }, [isSubmitSuccessful, reset]);
 
   const [message, setMessage] = useState('');
 

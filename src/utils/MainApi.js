@@ -10,6 +10,10 @@ class Main_Api {
     if (res.ok) {
       return res.json();
     }
+    if (res.status === 401) {
+      const event = new Event('invalidate_token');
+      window.dispatchEvent(event);
+    }
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 

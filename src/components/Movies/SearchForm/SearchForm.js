@@ -9,11 +9,7 @@ const SearchForm = (props) => {
   const defaultValues = {
     searchValue: defaultSearchValue || '',
   };
-  const {
-    register,
-    formState: { errors, isValid },
-    handleSubmit,
-  } = useForm({ defaultValues });
+  const { register, handleSubmit } = useForm({ defaultValues });
 
   return (
     <div className="search-form__container">
@@ -29,16 +25,9 @@ const SearchForm = (props) => {
           type="text"
           placeholder="Фильм"
           {...register('searchValue', {
-            required: 'Нужно ввести ключевое слово',
+            // required: 'Нужно ввести ключевое слово',
           })}
         />
-        <div className="search-form__error">
-          {errors?.searchValue && (
-            <p className="input__error">
-              {errors?.searchValue?.message || 'Ошибка!'}
-            </p>
-          )}
-        </div>
         <button
           className="search-form__button"
           aria-label="Искать"

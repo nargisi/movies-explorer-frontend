@@ -7,7 +7,7 @@ import FormSubmit from '../FormSubmit/FormSubmit';
 import { useForm } from 'react-hook-form';
 import Input from '../Input/Input';
 
-const Login = ({ fetchUserData }) => {
+const Login = () => {
   const { setShouldFetchUserData } = useContext(CurrentUserContext);
 
   const {

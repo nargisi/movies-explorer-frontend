@@ -3,7 +3,6 @@ import '../FilterCheckBox/FilterCheckBox.css';
 
 const FilterCheckBox = ({ className, onlyShort, setOnlyShort }) => {
   const handleSwitchShort = (e) => {
-    console.log(e.target.checked);
     setOnlyShort(e.target.checked);
   };
   return (

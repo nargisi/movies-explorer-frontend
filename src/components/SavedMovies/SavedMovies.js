@@ -18,6 +18,7 @@ const SavedMovies = () => {
   );
 
   const [savedMovies, setSavedMovies] = useState([]);
+
   const [searchValue, setSearchValue] = useState('');
 
   const [onlyShort, setOnlyShort] = useState(false);
@@ -48,8 +49,9 @@ const SavedMovies = () => {
     window.addEventListener('resize', () => {
       clearTimeout(timeOutFunctionId);
       timeOutFunctionId = setTimeout(() => {
-        const { moviesInRow: moviesInRowResize } = getSavedMoviesRenderParams();
-        setNumberOfMoviesToRender(moviesInRowResize);
+        const { moviesInRow: moviesInRowResize, maxRows: maxRowsResize } =
+          getSavedMoviesRenderParams();
+        setNumberOfMoviesToRender(moviesInRowResize * maxRowsResize);
       }, 500);
     });
   }, []);
@@ -61,7 +63,7 @@ const SavedMovies = () => {
           ? savedMovie.nameRU.toLowerCase().includes(searchValue.toLowerCase())
           : true) && (onlyShort ? savedMovie.duration <= ShortsDuration : true)
     );
-  }, [savedMovies, searchValue, onlyShort, searchIsCompleted]);
+  }, [savedMovies, searchValue, searchIsCompleted, onlyShort]);
 
   let component;
   if (moviesToRender.length) {
