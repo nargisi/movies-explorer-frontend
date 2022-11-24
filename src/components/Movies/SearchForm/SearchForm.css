@@ -14,6 +14,7 @@
     border-radius: 9px;
     padding-left: 19px;
     padding-right: 30px;
+    position: relative;
 }
 
 
@@ -48,8 +49,7 @@
 
 
 .search-form__input:focus {
-    border-bottom: 1px solid #000000;
-    opacity: 0.3;
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
   }
 
 
@@ -84,6 +84,13 @@
     height: 40px;
 }
 
+
+.search-form__error{
+    text-align: center;
+    position: absolute;
+    top:75px;
+    left:20px;
+}
 
   @media screen and (max-width: 1023px) {
     .search-form__stroke{

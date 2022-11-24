@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom';
 const FormSubmit = (props) => {
   return (
     <>
-      <button type="submit" className="form-submit__button">
+      <button
+        type="submit"
+        className="form-submit__button"
+        disabled={props.disabled}
+      >
         {props.title}
       </button>
       <div className="form-submit__signin">
