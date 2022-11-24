@@ -52,6 +52,7 @@ const Profile = () => {
 
   const handleLogOut = () => {
     localStorage.removeItem('jwt');
+    localStorage.clear();
     history.push('/');
     setCurrentUser(null);
   };
