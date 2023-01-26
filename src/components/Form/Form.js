@@ -7,7 +7,9 @@ const Form = (props) => {
     <>
       <MainLogo />
       <p className="form__welcome">{props.title}</p>
-      <form className="form__table">{props.children}</form>
+      <form className="form__table" onSubmit={props.onSubmit}>
+        {props.children}
+      </form>
     </>
   );
 };

@@ -1,11 +1,19 @@
-# movies-explorer-frontend
+### movies-explorer-frontend
 
-# Дипломный проект с авторизацией и регистрацией, frontend
+## Stack: React.js, React Hook Form, React Context, JS, Flexbox, Grid Layout
 
-Проект написан с ипользованием библиотеки React, реализована адаптивная верстка под различные экраны устройств, применены технологии Flexbox и СSS Grid Layout.
+This is my diploma project.
 
-Проект собран с помощью Webpack.
+# Features:
 
-**Figma**
+- my portfolio page with links;
 
-- [Ссылка на макет на Яндекс Диске](https://disk.yandex.ru/d/Nkhbi_rC_nYAYA)
+- user's registration and authentification;
+
+- searching movies by filter and saving the results of searching;
+
+- protected routes;
+
+- adaptive layout.
+
+[Link to app's layout](https://disk.yandex.ru/d/Nkhbi_rC_nYAYA)

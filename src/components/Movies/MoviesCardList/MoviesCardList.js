@@ -3,17 +3,20 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 import '../MoviesCardList/MoviesCardList.css';
 
 const MoviesCardList = (props) => {
-  const { movies, isSavedPage = false } = props;
+  const { movies, isSavedPage = false, onLike } = props;
   return (
     <div className="movies-card-list__container">
       <ul className="movies-card-list__box">
         {movies.map((movie) => (
           <MoviesCard
-            src={movie.src}
-            title={movie.title}
-            key={movie.title}
+            trailerLink={movie.trailerLink}
+            movie={movie}
+            title={movie.nameRU}
+            duration={movie.duration}
+            key={movie.id || movie.movieId}
             liked={movie.liked}
             isSavedPage={isSavedPage}
+            onLike={onLike}
           />
         ))}
       </ul>

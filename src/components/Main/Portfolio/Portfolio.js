@@ -9,7 +9,7 @@ function Portfolio() {
         <li className="portfolio__box">
           <a
             className="portfolio__link"
-            href="https://github.com/nargisi/movies-explorer-frontend/pull/1"
+            href="https://github.com/nargisi/how-to-learn"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -20,7 +20,7 @@ function Portfolio() {
         <li className="portfolio__box">
           <a
             className="portfolio__link"
-            href="https://github.com/nargisi/movies-explorer-frontend/pull/1"
+            href="https://github.com/nargisi/russian-travel"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -31,7 +31,7 @@ function Portfolio() {
         <li className="portfolio__box">
           <a
             className="portfolio__link"
-            href="https://github.com/nargisi/movies-explorer-frontend/pull/1"
+            href="https://github.com/nargisi/app-for-git"
             target="_blank"
             rel="noopener noreferrer"
           >
