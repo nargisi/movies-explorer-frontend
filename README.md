@@ -1,21 +1,19 @@
-# movies-explorer-frontend
+### movies-explorer-frontend
 
-# Дипломный проект с авторизацией и регистрацией, frontend
+## Stack: React.js, React Hook Form, React Context, JS, Flexbox, Grid Layout
 
-Проект написан с ипользованием библиотеки React, реализована адаптивная верстка под различные экраны устройств, применены технологии Flexbox и СSS Grid Layout.
+This is my diploma project.
 
-Проект собран с помощью Webpack.
+# Features:
 
-## Как найти сервер
+- my portfolio page with links;
 
-IP 84.201.167.18
-Frontend https://movies.nargisi.nomoredomains.icu/
-Backend https://api.movies.nargisi.nomoredomains.icu/
+- user's registration and authentification;
 
-## Ссылка на пул реквест
+- searching movies by filter and saving the results of searching;
 
-https://github.com/nargisi/movies-explorer-frontend/pull/2
+- protected routes;
 
-**Figma**
+- adaptive layout.
 
-- [Ссылка на макет на Яндекс Диске](https://disk.yandex.ru/d/Nkhbi_rC_nYAYA)
+[Link to app's layout](https://disk.yandex.ru/d/Nkhbi_rC_nYAYA)
