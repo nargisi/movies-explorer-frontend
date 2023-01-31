@@ -19,6 +19,6 @@ This is my diploma project.
 ## How to run:
 
 `npm start` — start app for developing
-`npm build` — build app for production
+`npm run build` — build app for production
 
 [Link to app's layout](https://disk.yandex.ru/d/Nkhbi_rC_nYAYA)
